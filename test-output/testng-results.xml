@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="9" passed="8" failed="1" skipped="0">
+<testng-results ignored="0" total="9" passed="9" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-09-02T13:39:54 PDT" name="Default suite" finished-at="2024-09-02T13:40:53 PDT" duration-ms="58653">
+  <suite started-at="2024-09-04T13:33:28 PDT" name="Default suite" finished-at="2024-09-04T13:34:28 PDT" duration-ms="60418">
     <groups>
     </groups>
-    <test started-at="2024-09-02T13:39:54 PDT" name="Default test" finished-at="2024-09-02T13:40:53 PDT" duration-ms="58653">
+    <test started-at="2024-09-04T13:33:28 PDT" name="Default test" finished-at="2024-09-04T13:34:28 PDT" duration-ms="60418">
       <class name="com.saucedemo.test.LoginPageTests">
-        <test-method is-config="true" signature="setUpReport()[pri:0, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:39:54 PDT" name="setUpReport" finished-at="2024-09-02T13:39:54 PDT" duration-ms="180" status="PASS">
+        <test-method is-config="true" signature="setUpReport()[pri:0, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:33:27 PDT" name="setUpReport" finished-at="2024-09-04T13:33:28 PDT" duration-ms="180" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpReport -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:39:54 PDT" name="setUp" finished-at="2024-09-02T13:39:58 PDT" duration-ms="3537" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:33:28 PDT" name="setUp" finished-at="2024-09-04T13:33:32 PDT" duration-ms="4374" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testLoginPageTitle()[pri:1, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:39:58 PDT" name="testLoginPageTitle" finished-at="2024-09-02T13:39:58 PDT" duration-ms="32" status="PASS">
+        <test-method signature="testLoginPageTitle()[pri:1, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:33:32 PDT" name="testLoginPageTitle" finished-at="2024-09-04T13:33:32 PDT" duration-ms="27" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testLoginPageTitle -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:39:58 PDT" name="tearDown" finished-at="2024-09-02T13:39:58 PDT" duration-ms="502" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:33:32 PDT" name="tearDown" finished-at="2024-09-04T13:33:33 PDT" duration-ms="527" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testLoginPageTitle status=SUCCESS method=LoginPageTests.testLoginPageTitle()[pri:1, instance:com.saucedemo.test.LoginPageTests@909217e] output={null}]]]>
+                <![CDATA[[TestResult name=testLoginPageTitle status=SUCCESS method=LoginPageTests.testLoginPageTitle()[pri:1, instance:com.saucedemo.test.LoginPageTests@18271936] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:39:59 PDT" name="setUp" finished-at="2024-09-02T13:40:02 PDT" duration-ms="2588" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:33:33 PDT" name="setUp" finished-at="2024-09-04T13:33:36 PDT" duration-ms="2474" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testLoginFunction(java.lang.String,java.lang.String)[pri:2, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:40:02 PDT" name="testLoginFunction" data-provider="saucedemo" finished-at="2024-09-02T13:40:05 PDT" duration-ms="3429" status="PASS">
+        <test-method signature="testLoginFunction(java.lang.String,java.lang.String)[pri:2, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:33:36 PDT" name="testLoginFunction" data-provider="saucedemo" finished-at="2024-09-04T13:33:39 PDT" duration-ms="3513" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -50,22 +50,22 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testLoginFunction -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:40:05 PDT" name="tearDown" finished-at="2024-09-02T13:40:05 PDT" duration-ms="340" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:33:39 PDT" name="tearDown" finished-at="2024-09-04T13:33:40 PDT" duration-ms="297" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testLoginFunction status=SUCCESS method=LoginPageTests.testLoginFunction(java.lang.String,java.lang.String)[pri:2, instance:com.saucedemo.test.LoginPageTests@909217e] output={null}]]]>
+                <![CDATA[[TestResult name=testLoginFunction status=SUCCESS method=LoginPageTests.testLoginFunction(java.lang.String,java.lang.String)[pri:2, instance:com.saucedemo.test.LoginPageTests@18271936] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:40:05 PDT" name="setUp" finished-at="2024-09-02T13:40:08 PDT" duration-ms="3038" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:33:40 PDT" name="setUp" finished-at="2024-09-04T13:33:42 PDT" duration-ms="2027" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testLoginFunction(java.lang.String,java.lang.String)[pri:2, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:40:08 PDT" name="testLoginFunction" data-provider="saucedemo" finished-at="2024-09-02T13:40:12 PDT" duration-ms="3449" status="PASS">
+        <test-method signature="testLoginFunction(java.lang.String,java.lang.String)[pri:2, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:33:42 PDT" name="testLoginFunction" data-provider="saucedemo" finished-at="2024-09-04T13:33:46 PDT" duration-ms="3875" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -81,22 +81,22 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testLoginFunction -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:40:12 PDT" name="tearDown" finished-at="2024-09-02T13:40:12 PDT" duration-ms="286" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:33:46 PDT" name="tearDown" finished-at="2024-09-04T13:33:46 PDT" duration-ms="292" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testLoginFunction status=SUCCESS method=LoginPageTests.testLoginFunction(java.lang.String,java.lang.String)[pri:2, instance:com.saucedemo.test.LoginPageTests@909217e] output={null}]]]>
+                <![CDATA[[TestResult name=testLoginFunction status=SUCCESS method=LoginPageTests.testLoginFunction(java.lang.String,java.lang.String)[pri:2, instance:com.saucedemo.test.LoginPageTests@18271936] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:40:12 PDT" name="setUp" finished-at="2024-09-02T13:40:15 PDT" duration-ms="2801" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:33:46 PDT" name="setUp" finished-at="2024-09-04T13:33:48 PDT" duration-ms="2499" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testLoginFunction(java.lang.String,java.lang.String)[pri:2, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:40:15 PDT" name="testLoginFunction" data-provider="saucedemo" finished-at="2024-09-02T13:40:18 PDT" duration-ms="3391" status="PASS">
+        <test-method signature="testLoginFunction(java.lang.String,java.lang.String)[pri:2, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:33:48 PDT" name="testLoginFunction" data-provider="saucedemo" finished-at="2024-09-04T13:33:52 PDT" duration-ms="3392" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -112,22 +112,22 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testLoginFunction -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:40:18 PDT" name="tearDown" finished-at="2024-09-02T13:40:19 PDT" duration-ms="307" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:33:52 PDT" name="tearDown" finished-at="2024-09-04T13:33:52 PDT" duration-ms="250" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testLoginFunction status=SUCCESS method=LoginPageTests.testLoginFunction(java.lang.String,java.lang.String)[pri:2, instance:com.saucedemo.test.LoginPageTests@909217e] output={null}]]]>
+                <![CDATA[[TestResult name=testLoginFunction status=SUCCESS method=LoginPageTests.testLoginFunction(java.lang.String,java.lang.String)[pri:2, instance:com.saucedemo.test.LoginPageTests@18271936] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:40:19 PDT" name="setUp" finished-at="2024-09-02T13:40:21 PDT" duration-ms="2670" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:33:52 PDT" name="setUp" finished-at="2024-09-04T13:33:55 PDT" duration-ms="2575" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testLoginFunction(java.lang.String,java.lang.String)[pri:2, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:40:21 PDT" name="testLoginFunction" data-provider="saucedemo" finished-at="2024-09-02T13:40:25 PDT" duration-ms="3388" status="PASS">
+        <test-method signature="testLoginFunction(java.lang.String,java.lang.String)[pri:2, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:33:55 PDT" name="testLoginFunction" data-provider="saucedemo" finished-at="2024-09-04T13:33:58 PDT" duration-ms="3389" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -143,22 +143,22 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testLoginFunction -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:40:25 PDT" name="tearDown" finished-at="2024-09-02T13:40:25 PDT" duration-ms="289" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:33:58 PDT" name="tearDown" finished-at="2024-09-04T13:33:58 PDT" duration-ms="262" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testLoginFunction status=SUCCESS method=LoginPageTests.testLoginFunction(java.lang.String,java.lang.String)[pri:2, instance:com.saucedemo.test.LoginPageTests@909217e] output={null}]]]>
+                <![CDATA[[TestResult name=testLoginFunction status=SUCCESS method=LoginPageTests.testLoginFunction(java.lang.String,java.lang.String)[pri:2, instance:com.saucedemo.test.LoginPageTests@18271936] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:40:25 PDT" name="setUp" finished-at="2024-09-02T13:40:28 PDT" duration-ms="2961" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:33:58 PDT" name="setUp" finished-at="2024-09-04T13:34:01 PDT" duration-ms="2403" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testLoginFunction(java.lang.String,java.lang.String)[pri:2, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:40:28 PDT" name="testLoginFunction" data-provider="saucedemo" finished-at="2024-09-02T13:40:36 PDT" duration-ms="8466" status="PASS">
+        <test-method signature="testLoginFunction(java.lang.String,java.lang.String)[pri:2, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:34:01 PDT" name="testLoginFunction" data-provider="saucedemo" finished-at="2024-09-04T13:34:09 PDT" duration-ms="8504" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -174,110 +174,68 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testLoginFunction -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:40:36 PDT" name="tearDown" finished-at="2024-09-02T13:40:37 PDT" duration-ms="363" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:34:09 PDT" name="tearDown" finished-at="2024-09-04T13:34:09 PDT" duration-ms="347" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testLoginFunction status=SUCCESS method=LoginPageTests.testLoginFunction(java.lang.String,java.lang.String)[pri:2, instance:com.saucedemo.test.LoginPageTests@909217e] output={null}]]]>
+                <![CDATA[[TestResult name=testLoginFunction status=SUCCESS method=LoginPageTests.testLoginFunction(java.lang.String,java.lang.String)[pri:2, instance:com.saucedemo.test.LoginPageTests@18271936] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:40:37 PDT" name="setUp" finished-at="2024-09-02T13:40:39 PDT" duration-ms="1951" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:34:09 PDT" name="setUp" finished-at="2024-09-04T13:34:12 PDT" duration-ms="2580" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testUsernameBlank()[pri:3, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:40:39 PDT" name="testUsernameBlank" finished-at="2024-09-02T13:40:43 PDT" duration-ms="4046" status="PASS">
+        <test-method signature="testUsernameBlank()[pri:3, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:34:12 PDT" name="testUsernameBlank" finished-at="2024-09-04T13:34:15 PDT" duration-ms="3327" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testUsernameBlank -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:40:43 PDT" name="tearDown" finished-at="2024-09-02T13:40:43 PDT" duration-ms="294" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:34:15 PDT" name="tearDown" finished-at="2024-09-04T13:34:16 PDT" duration-ms="289" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testUsernameBlank status=SUCCESS method=LoginPageTests.testUsernameBlank()[pri:3, instance:com.saucedemo.test.LoginPageTests@909217e] output={null}]]]>
+                <![CDATA[[TestResult name=testUsernameBlank status=SUCCESS method=LoginPageTests.testUsernameBlank()[pri:3, instance:com.saucedemo.test.LoginPageTests@18271936] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:40:43 PDT" name="setUp" finished-at="2024-09-02T13:40:45 PDT" duration-ms="2118" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:34:16 PDT" name="setUp" finished-at="2024-09-04T13:34:18 PDT" duration-ms="2046" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testPasswordBlank()[pri:4, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:40:45 PDT" name="testPasswordBlank" finished-at="2024-09-02T13:40:49 PDT" duration-ms="3983" status="PASS">
+        <test-method signature="testPasswordBlank()[pri:4, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:34:18 PDT" name="testPasswordBlank" finished-at="2024-09-04T13:34:22 PDT" duration-ms="3775" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testPasswordBlank -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:40:49 PDT" name="tearDown" finished-at="2024-09-02T13:40:50 PDT" duration-ms="460" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:34:22 PDT" name="tearDown" finished-at="2024-09-04T13:34:22 PDT" duration-ms="300" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testPasswordBlank status=SUCCESS method=LoginPageTests.testPasswordBlank()[pri:4, instance:com.saucedemo.test.LoginPageTests@909217e] output={null}]]]>
+                <![CDATA[[TestResult name=testPasswordBlank status=SUCCESS method=LoginPageTests.testPasswordBlank()[pri:4, instance:com.saucedemo.test.LoginPageTests@18271936] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:40:50 PDT" name="setUp" finished-at="2024-09-02T13:40:52 PDT" duration-ms="2700" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:34:22 PDT" name="setUp" finished-at="2024-09-04T13:34:24 PDT" duration-ms="2557" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testLoginPageTitleFailed()[pri:5, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:40:52 PDT" name="testLoginPageTitleFailed" finished-at="2024-09-02T13:40:52 PDT" duration-ms="32" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:111)
-at org.testng.Assert.failNotEquals(Assert.java:1578)
-at org.testng.Assert.assertTrue(Assert.java:57)
-at org.testng.Assert.assertTrue(Assert.java:67)
-at com.saucedemo.test.LoginPageTests.testLoginPageTitleFailed(LoginPageTests.java:67)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:739)
-at org.testng.TestRunner.run(TestRunner.java:614)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+        <test-method signature="testInvalidUser()[pri:5, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:34:24 PDT" name="testInvalidUser" finished-at="2024-09-04T13:34:28 PDT" duration-ms="3383" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testLoginPageTitleFailed -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.saucedemo.test.LoginPageTests@909217e]" started-at="2024-09-02T13:40:52 PDT" name="tearDown" finished-at="2024-09-02T13:40:53 PDT" duration-ms="418" status="PASS">
+        </test-method> <!-- testInvalidUser -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.saucedemo.test.LoginPageTests@18271936]" started-at="2024-09-04T13:34:28 PDT" name="tearDown" finished-at="2024-09-04T13:34:28 PDT" duration-ms="262" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testLoginPageTitleFailed status=FAILURE method=LoginPageTests.testLoginPageTitleFailed()[pri:5, instance:com.saucedemo.test.LoginPageTests@909217e] output={null}]]]>
+                <![CDATA[[TestResult name=testInvalidUser status=SUCCESS method=LoginPageTests.testInvalidUser()[pri:5, instance:com.saucedemo.test.LoginPageTests@18271936] output={null}]]]>
               </value>
             </param>
           </params>

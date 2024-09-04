@@ -59,7 +59,21 @@ public class LoginPageTests extends BaseTest {
 		Logger.pass("user not able to logged in ");
 	}
 	
-	//@Test(priority = 5)
+	@Test(priority = 5)
+	public void testInvalidUser() throws InterruptedException {
+		Logger = report.createTest("test Invalid/Locked out user");
+		loginpage.enterUsername("locked_out_user");
+		Logger.pass("entered username successfully");
+		loginpage.enterPassword("secret_sauce");
+		Logger.pass("entered password successfully");
+		loginpage.clickLoginButton();
+		Logger.pass("user clicked the login button");
+		Thread.sleep(3000);
+		loginpage.isBlankPasswordErrorPresent();
+		Logger.pass("user not able to logged in ");
+	}
+	
+	//@Test(priority = 6)
 	public void testLoginPageTitleFailed() {
 		Logger = report.createTest("test login page title Failed");
 		String pageTitle = loginpage.getLoginPageTitle();
