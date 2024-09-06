@@ -3,6 +3,7 @@ package com.saucedemo.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import com.saucedemo.base.DriverScript;
 
@@ -15,8 +16,8 @@ public class LoginPage extends DriverScript {
 	private WebElement passwordTextbox;
 	@FindBy(id = "login-button")
 	private WebElement loginButton;
-	@FindBy(xpath = "//*[@id=\"login_button_container\"]/div/form/div[3]/h3") private WebElement BlankUsernameError;
-	@FindBy(xpath = "//*[@id=\"login_button_container\"]/div/form/div[3]/h3") private WebElement BlankPasswordError;
+	@FindBy(xpath = "//h3[@data-test='error']") private WebElement BlankUsernameError;
+	@FindBy(xpath = "//h3[@data-test='error']") private WebElement BlankPasswordError;
 
 	// ***************************** Page Initialization *****************************
 
@@ -50,4 +51,14 @@ public class LoginPage extends DriverScript {
 		return BlankPasswordError.isDisplayed();
 	}
 	
+	public void validateErrorMessage(String errorTextActual, String errorTextExpected) {
+		Assert.assertEquals(errorTextActual, errorTextExpected);
+	}
+	public String getTextUsernameError() {
+		return getText(BlankUsernameError);
+	}
+	
+	public String getTextPasswordError() {
+		return getText(BlankPasswordError);
+	}
 }

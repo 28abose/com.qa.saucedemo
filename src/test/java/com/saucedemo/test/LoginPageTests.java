@@ -1,5 +1,6 @@
 package com.saucedemo.test;
 
+import org.openqa.selenium.Alert;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -34,7 +35,7 @@ public class LoginPageTests extends BaseTest {
 	@Test(priority = 3)
 	public void testUsernameBlank() throws InterruptedException {
 		Logger = report.createTest("test login functionality without username");
-		loginpage.enterUsername(" ");
+		loginpage.enterUsername("");
 		Logger.pass("username field is blank");
 		loginpage.enterPassword("secret_sauce");
 		Logger.pass("entered password successfully");
@@ -43,6 +44,10 @@ public class LoginPageTests extends BaseTest {
 		Thread.sleep(3000);
 		loginpage.isBlankUsernameErrorPresent();
 		Logger.pass("user not able to logged in ");
+		String errorTextActual = loginpage.getTextUsernameError();
+		String errorTextExpected = "Epic sadface: Username is required";
+		loginpage.validateErrorMessage(errorTextActual, errorTextExpected);
+		Logger.pass("validated the error message");
 	}
 	
 	@Test(priority = 4)
@@ -50,27 +55,36 @@ public class LoginPageTests extends BaseTest {
 		Logger = report.createTest("test login functionality without password");
 		loginpage.enterUsername("standard_user");
 		Logger.pass("entered username successfully");
-		loginpage.enterPassword(" ");
+		loginpage.enterPassword("");
 		Logger.pass("password field is blank");
 		loginpage.clickLoginButton();
 		Logger.pass("user clicked the login button");
 		Thread.sleep(3000);
 		loginpage.isBlankPasswordErrorPresent();
 		Logger.pass("user not able to logged in ");
+		String errorTextActual = loginpage.getTextPasswordError();
+		String errorTextExpected = "Epic sadface: Password is required";
+		loginpage.validateErrorMessage(errorTextActual, errorTextExpected);
+		Logger.pass("validated the error message");
 	}
 	
+
 	@Test(priority = 5)
-	public void testInvalidUser() throws InterruptedException {
-		Logger = report.createTest("test Invalid/Locked out user");
-		loginpage.enterUsername("locked_out_user");
-		Logger.pass("entered username successfully");
-		loginpage.enterPassword("secret_sauce");
-		Logger.pass("entered password successfully");
+	public void testUsernamePasswordMismatch() throws InterruptedException {
+		Logger = report.createTest("test login functionality without password");
+		loginpage.enterUsername("standard");
+		Logger.pass("entered invalid username");
+		loginpage.enterPassword("1234");
+		Logger.pass("entered invalid password");
 		loginpage.clickLoginButton();
 		Logger.pass("user clicked the login button");
 		Thread.sleep(3000);
 		loginpage.isBlankPasswordErrorPresent();
 		Logger.pass("user not able to logged in ");
+		String errorTextActual = loginpage.getTextPasswordError();
+		String errorTextExpected = "Epic sadface: Username and password do not match any user in this service";
+		loginpage.validateErrorMessage(errorTextActual, errorTextExpected);
+		Logger.pass("validated the error message");
 	}
 	
 	//@Test(priority = 6)

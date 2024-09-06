@@ -6,6 +6,7 @@ import java.time.Duration;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -74,6 +75,10 @@ public class DriverScript {
 	 */
 	public static void quitDriver() {
 		driver.quit();
+	}
+	
+	public static String getText(WebElement element) {
+		return element.getText();
 	}
 	
 }
