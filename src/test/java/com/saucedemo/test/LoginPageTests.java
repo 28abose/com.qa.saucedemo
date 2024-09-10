@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class LoginPageTests extends BaseTest {
 	
 		
-	@Test(priority = 1)
+	//@Test(priority = 1)
 	public void testLoginPageTitle() {
 		Logger = report.createTest("test login page title");
 		String pageTitle = loginpage.getLoginPageTitle();
@@ -16,7 +16,7 @@ public class LoginPageTests extends BaseTest {
 		Logger.pass("login page title matched");
 	}
 	
-	@Test(priority = 2,dataProvider ="saucedemo")
+	//@Test(priority = 2,dataProvider ="saucedemo")
 	public void testLoginFunction(String username, String password) throws InterruptedException {
 		Logger = report.createTest("test login functionality");
 		loginpage.enterUsername(username);
@@ -32,7 +32,7 @@ public class LoginPageTests extends BaseTest {
 		Thread.sleep(3000);
 	}
 
-	@Test(priority = 3)
+	//@Test(priority = 3)
 	public void testUsernameBlank() throws InterruptedException {
 		Logger = report.createTest("test login functionality without username");
 		loginpage.enterUsername("");
@@ -50,7 +50,7 @@ public class LoginPageTests extends BaseTest {
 		Logger.pass("validated the error message");
 	}
 	
-	@Test(priority = 4)
+	//@Test(priority = 4)
 	public void testPasswordBlank() throws InterruptedException {
 		Logger = report.createTest("test login functionality without password");
 		loginpage.enterUsername("standard_user");
@@ -69,7 +69,7 @@ public class LoginPageTests extends BaseTest {
 	}
 	
 
-	@Test(priority = 5)
+	//@Test(priority = 5)
 	public void testUsernamePasswordMismatch() throws InterruptedException {
 		Logger = report.createTest("test login functionality without password");
 		loginpage.enterUsername("standard");
@@ -95,4 +95,10 @@ public class LoginPageTests extends BaseTest {
 		Assert.assertTrue(pageTitle.contains("Swag Swag Labs"));
 		Logger.pass("login page title matched");
 	}
+	
+	@Test
+	public void testLoginInBaseClass() {
+		login();
+	}
+	
 }
