@@ -98,7 +98,9 @@ public class LoginPageTests extends BaseTest {
 	
 	@Test
 	public void testLoginInBaseClass() {
+		Logger = report.createTest("test login from BaseClass");
 		login();
+		Logger.pass("login successfully");
 	}
 	
 }
