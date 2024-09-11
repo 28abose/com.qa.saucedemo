@@ -16,9 +16,12 @@ public class LoginPage extends DriverScript {
 	private WebElement passwordTextbox;
 	@FindBy(id = "login-button")
 	private WebElement loginButton;
+
 	@FindBy(xpath = "//h3[@data-test='error']") private WebElement BlankUsernameError;
 	@FindBy(xpath = "//h3[@data-test='error']") private WebElement BlankPasswordError;
+	
 
+	
 	// ***************************** Page Initialization *****************************
 
 	public LoginPage() {
@@ -62,4 +65,5 @@ public class LoginPage extends DriverScript {
 	public String getTextPasswordError() {
 		return getText(BlankPasswordError);
 	}
+
 }
