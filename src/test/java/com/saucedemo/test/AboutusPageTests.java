@@ -1,5 +1,5 @@
 package com.saucedemo.test;
 
-public class AboutusPageTests {
+public class AboutusPageTests extends BaseTest {
 
 }

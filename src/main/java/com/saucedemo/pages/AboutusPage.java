@@ -1,5 +1,15 @@
 package com.saucedemo.pages;
 
-public class AboutusPage {
+import org.openqa.selenium.support.PageFactory;
+
+import com.saucedemo.base.DriverScript;
+
+public class AboutusPage extends DriverScript {
+	// locators
+	// initalization
+	public AboutusPage() {
+		PageFactory.initElements(driver, this);
+	}
+	// methods
 
 }

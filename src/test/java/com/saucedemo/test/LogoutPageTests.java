@@ -1,5 +1,7 @@
 package com.saucedemo.test;
 
-public class LogoutPageTests {
+public class LogoutPageTests extends BaseTest {
+	
+	
 
 }
