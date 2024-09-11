@@ -21,6 +21,7 @@ public class HomePage extends DriverScript {
 	@FindBy(xpath = "//span[text()='Products']") private WebElement ProductsText;
 	@FindBy(className = "inventory_item_price") private List<WebElement> beforeFilterPrice;
 	@FindBy(className = "product_sort_container") private WebElement dropdownFilter;
+	@FindBy(xpath = "//div[@class = 'inventory_list']/div") private List<WebElement> ProductsGrid;
 	
 	//***************************** Page Initialization *****************************
 	
@@ -58,6 +59,10 @@ public class HomePage extends DriverScript {
 		}
 	}
 	
+	public int getProductsGridSize() {
+		return ProductsGrid.size();
+	}
+	
 	public void selectFilter(String text) {
 		Select dropdown = new Select(dropdownFilter);
 		dropdown.selectByVisibleText(text);
@@ -86,7 +91,7 @@ public class HomePage extends DriverScript {
 		}
 		Collections.sort(beforeFilterPriceList); //list will get sorted in ascending order
 		Collections.reverse(beforeFilterPriceList); //list will get sorted in descending order
-		Assert.assertEquals(afterFilterPriceList, afterFilterPriceList);
+		Assert.assertEquals(beforeFilterPriceList, afterFilterPriceList);
 	}
 	
 }

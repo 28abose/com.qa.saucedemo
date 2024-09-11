@@ -36,6 +36,7 @@ public class BaseTest extends DriverScript{
 		loginpage.clickLoginButton();
 	}
 	
+	
 	@BeforeSuite
 	public void setUpReport() {
 		

@@ -30,7 +30,8 @@ public class LoginPage extends DriverScript {
 	public void enterUsername(String username) {
 		usernameTextbox.sendKeys(username);
 	}
-	
+
+		
 	public void enterPassword(String password) {
 		passwordTextbox.sendKeys(password);
 	}
