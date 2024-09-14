@@ -10,13 +10,9 @@ import com.saucedemo.base.DriverScript;
 public class LoginPage extends DriverScript {
 
 	// ***************************** Page Locators ***********************************
-	@FindBy(id = "user-name")
-	private WebElement usernameTextbox;
-	@FindBy(id = "password")
-	private WebElement passwordTextbox;
-	@FindBy(id = "login-button")
-	private WebElement loginButton;
-
+	@FindBy(id = "user-name") private WebElement usernameTextbox;
+	@FindBy(id = "password") private WebElement passwordTextbox;
+	@FindBy(id = "login-button") private WebElement loginButton;
 	@FindBy(xpath = "//h3[@data-test='error']") private WebElement BlankUsernameError;
 	@FindBy(xpath = "//h3[@data-test='error']") private WebElement BlankPasswordError;
 	

@@ -13,87 +13,137 @@ import org.testng.Assert;
 import com.saucedemo.base.DriverScript;
 
 public class HomePage extends DriverScript {
-	
-	//***************************** Page Locators *****************************
+
+	// ***************************** Page Locators *****************************
 	@FindBy(id = "react-burger-menu-btn") private WebElement burgerMenu;
 	@FindBy(id = "about_sidebar_link") private WebElement aboutLink;
 	@FindBy(xpath = "//div[text()='Swag Labs']") private WebElement SwaglabsText;
 	@FindBy(xpath = "//span[text()='Products']") private WebElement ProductsText;
-	@FindBy(className = "inventory_item_price") private List<WebElement> beforeFilterPrice;
+
+	@FindBy(className = "inventory_item_price") private List<WebElement> priceList;
+	@FindBy(className = "inventory_item_name") private List<WebElement> nameList;
 	@FindBy(className = "product_sort_container") private WebElement dropdownFilter;
 	@FindBy(xpath = "//div[@class = 'inventory_list']/div") private List<WebElement> ProductsGrid;
-	
-	//***************************** Page Initialization *****************************
-	
+
+	// ***************************** Page Initialization *****************************
+
 	public HomePage() {
-		PageFactory.initElements(driver,this);
+		PageFactory.initElements(driver, this);
 	}
-	
-	//***************************** Page Methods/Action *****************************
-	
+
+	// ***************************** Page Methods/Action *****************************
+
 	public void clickburgerMenu() {
 		burgerMenu.click();
 	}
-	
+
 	public void clickaboutLink() {
 		aboutLink.click();
 	}
-	
+
 	public String getHomePageTitle() {
 		return driver.getTitle();
 	}
-	
+
 	public String validateSwaglabsText() {
 		return SwaglabsText.getText();
 	}
 
 	public boolean isProductsTextPresent() {
 		return ProductsText.isDisplayed();
-	} 
-	
-	public void beforeFilterPrice() {
-		List<Double> beforeFilterPriceList = new ArrayList<>();
-		for(WebElement p : beforeFilterPrice) {
-			beforeFilterPriceList.add(Double.valueOf(p.getText().replace("$", "")));
-			
-		}
 	}
-	
+
 	public int getProductsGridSize() {
 		return ProductsGrid.size();
 	}
-	
+
+	// Method to capture prices from a list of WebElements
+	public List<Double> beforeFilterPrice() {
+		List<Double> beforeFilterPriceList = new ArrayList<>();
+		for (WebElement p : priceList) {
+			beforeFilterPriceList.add(Double.valueOf(p.getText().replace("$", "")));
+		}
+		System.out.println("Inside beforeFilterPrice method");
+		return beforeFilterPriceList;
+	}
+
+	// Method to capture Product names from a list of WebElements
+	public List<String> beforeFilterName() {
+		List<String> beforeFilterNameList = new ArrayList<>();
+		for (WebElement n : nameList) {
+			beforeFilterNameList.add(n.getText());
+		}
+		System.out.println("Inside beforeFilterName method");
+		return beforeFilterNameList;
+	}
+
+	// Method to apply the filter
 	public void selectFilter(String text) {
 		Select dropdown = new Select(dropdownFilter);
 		dropdown.selectByVisibleText(text);
+		System.out.println("Inside selectFilter method");
 	}
-	
-	public void afterFilterPrice() {
+
+	// Method to capture prices from a list of WebElements
+	public List<Double> afterFilterPrice() {
 		List<Double> afterFilterPriceList = new ArrayList<>();
-		for(WebElement p : beforeFilterPrice) {
+		for (WebElement p : priceList) {
 			afterFilterPriceList.add(Double.valueOf(p.getText().replace("$", "")));
 		}
+		System.out.println("Inside beforeFilterPrice method");
+		return afterFilterPriceList;
 	}
-	
-	public void compareFilterValues() {
-		//1.before filter capture the price
-		List<Double> beforeFilterPriceList = new ArrayList<>();
-		//2.remove the $ symbol
-		for(WebElement p : beforeFilterPrice) {
-			beforeFilterPriceList.add(Double.valueOf(p.getText().replace("$", "")));
-			}
-		//3.filter the price from the dropdown
-		selectFilter("Price (high to low)");
-		//4.after filter capture the price
-		List<Double> afterFilterPriceList = new ArrayList<>();
-		for(WebElement p : beforeFilterPrice) {
-			afterFilterPriceList.add(Double.valueOf(p.getText().replace("$", "")));
+
+	// Method to capture names from a list of WebElements
+	public List<String> afterFilterName() {
+		List<String> afterFilterNameList = new ArrayList<>();
+		for (WebElement n : nameList) {
+			afterFilterNameList.add(n.getText());
 		}
-		Collections.sort(beforeFilterPriceList); //list will get sorted in ascending order
-		Collections.reverse(beforeFilterPriceList); //list will get sorted in descending order
-		Assert.assertEquals(beforeFilterPriceList, afterFilterPriceList);
+		System.out.println("Inside afterFilterName method");
+		return afterFilterNameList;
+
 	}
-	
+
+	// Method to sort the listPrice
+	public List<Double> sortPriceAscending(List<Double> priceList) {
+		Collections.sort(priceList);
+		System.out.println("Inside sortPriceAssending method");
+		return priceList;
+	}
+
+	// Method to sort the list by name
+	public List<String> sortNameAscending(List<String> nameList) {
+		Collections.sort(nameList);
+		System.out.println("Inside sortNameAscending method");
+		return nameList;
+	}
+
+	// Method to reverse the listPrice
+	public List<Double> sortPriceDescending(List<Double> priceList1) {
+		Collections.reverse(priceList1);
+		System.out.println("Inside sortPriceDescending method");
+		return priceList1;
+	}
+
+	// Method to reverse the list by name
+	public List<String> sortNameDescending(List<String> nameList) {
+		Collections.reverse(nameList);
+		System.out.println("Inside sortNameDescending method");
+		return nameList;
+	}
+
+	// Method to compare the listsPrice
+	public void compareLists(List<Double> list1, List<Double> list2) {
+		System.out.println("Inside compareLists begining method");
+		Assert.assertEquals(list1, list2);
+		System.out.println("Inside compareLists ending method");
+	}
+
+	// Method to compare the lists by name
+	public void compareListsByName(List<String> list1, List<String> list2) {
+		System.out.println("Inside compareListsByName begining method");
+		Assert.assertEquals(list1, list2);
+		System.out.println("Inside compareListsByName ending method");
+	}
 }
-
-
