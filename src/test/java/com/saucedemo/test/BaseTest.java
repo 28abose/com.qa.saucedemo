@@ -36,6 +36,7 @@ public class BaseTest extends DriverScript{
 	AboutusPage aboutuspage;
 	
 	
+	//This method is used to login to the application before executing anything in the homepage
 	public void login() {
 		loginpage.enterUsername("standard_user");
 		loginpage.enterPassword("secret_sauce");

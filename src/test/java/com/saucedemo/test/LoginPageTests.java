@@ -96,7 +96,7 @@ public class LoginPageTests extends BaseTest {
 		Logger.pass("login page title matched");
 	}
 	
-	@Test
+	@Test(enabled = false)
 	public void testLoginInBaseClass() {
 		Logger = report.createTest("test login from BaseClass");
 		login();

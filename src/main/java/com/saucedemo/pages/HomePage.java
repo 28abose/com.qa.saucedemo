@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -24,7 +25,16 @@ public class HomePage extends DriverScript {
 	@FindBy(className = "inventory_item_name") private List<WebElement> nameList;
 	@FindBy(className = "product_sort_container") private WebElement dropdownFilter;
 	@FindBy(xpath = "//div[@class = 'inventory_list']/div") private List<WebElement> ProductsGrid;
-
+	@FindBy(tagName = "a") private List<WebElement> totalLinks;
+	
+	@FindBy(className = "footer") private WebElement footer;
+	@FindBy(tagName = "a") private List<WebElement> links;
+	@FindBy(linkText = "Twitter") private WebElement Twitter;
+	@FindBy(linkText = "Facebook") private WebElement Facebook;
+	@FindBy(linkText = "LinkedIn") private WebElement LinkedIn;
+	@FindBy(xpath = "//div[@class='footer_copy']") private WebElement PrivacyPolicy;
+	
+	
 	// ***************************** Page Initialization *****************************
 
 	public HomePage() {
@@ -145,5 +155,43 @@ public class HomePage extends DriverScript {
 		System.out.println("Inside compareListsByName begining method");
 		Assert.assertEquals(list1, list2);
 		System.out.println("Inside compareListsByName ending method");
+	}
+	
+	// Method to count the number of links in this page
+	public int PageLinkCount() {
+		int size = totalLinks.size();
+		System.out.println("Page link count in this page : "+size);
+		for (int i = 1;i<size;i++){
+			WebElement a = totalLinks.get(i);
+			String c = a.getText();
+			System.out.println("Names of the links :"+c);
+			}
+		return size;
+	}
+	
+	
+	// Method to count the number of links in the footer
+	public int footerLinkCount() {
+		List<WebElement> links = footer.findElements(By.tagName("a"));
+		int count = links.size();
+		System.out.println("The number of links in the footer is : "+count);
+		return count;
+	}
+	
+	public void isTwitterDisplayed() {
+		Twitter.isDisplayed();
+	}
+	
+	public void isFacebookDisplayed() {
+		Facebook.isDisplayed();
+	}
+	
+	public void isLinkedInDisplayed() {
+		LinkedIn.isDisplayed();
+	}
+	
+	public String PrivacyPolicyYearCorrect() {
+		return PrivacyPolicy.getText();
+		
 	}
 }
