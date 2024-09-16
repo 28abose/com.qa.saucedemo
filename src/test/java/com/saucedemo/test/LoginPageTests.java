@@ -2,6 +2,7 @@ package com.saucedemo.test;
 
 import org.openqa.selenium.Alert;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class LoginPageTests extends BaseTest {
@@ -96,11 +97,75 @@ public class LoginPageTests extends BaseTest {
 		Logger.pass("login page title matched");
 	}
 	
-	@Test(enabled = false)
+	//@Test(enabled = false)
 	public void testLoginInBaseClass() {
 		Logger = report.createTest("test login from BaseClass");
 		login();
 		Logger.pass("login successfully");
+	}
+	
+	@DataProvider(name = "loginDataProvider")
+	public Object[][] loginDataProvider() {
+	    return new Object[][] {
+	    	{"standard_user", " ", false},
+	    	{" ", "secret_sauce", false},
+	    	{"locked_out_user", "secret_sauce", false},
+	        {"standard_user", "secret_sauce", true},
+	        {"visual_user", "secret_sauce", true},
+	        {"problem_user", "secret_sauce", true},
+	        {"error_user", "secret_sauce", true},
+	        {"performance_glitch_user", "secret_sauce", true}
+	        
+	    };
+	}
+
+	//@Test(priority = 9,dataProvider ="loginDataProvider")
+	public void testLoginFeatures(String username, String password, boolean isValidUser){
+		Logger = report.createTest("Test login features using data provider");
+		loginpage.performLogin(username, password);
+		Logger.pass("entered username, password and clicked login button");
+		if(!isValidUser) {
+			Assert.assertTrue(loginpage.isErrorTextPresent());
+			System.out.println("not a valid user");
+			Logger.pass("not a valid user, can't login");
+			
+		}else {
+			Assert.assertTrue(homepage.isProductsTextPresent());
+			System.out.println("valid user");
+			Logger.pass("valid user, login successful");
+		}
+		
+	}
+	
+
+	//@Test(priority = 10)
+	// Method to count the number of links in this page
+	public void TotalLinkInLoginpage() {
+		Logger = report.createTest("test total number of links in LoginPage");
+		int actual = loginpage.PageLinkCount();
+		System.out.println(actual);
+		int expected = 0;
+		Logger.pass("Counted links successfully");
+		Assert.assertEquals(actual, expected);
+		Logger.pass("Validated loginpage have no links");
+	}
+	
+	@Test(priority = 11)
+	// Method to Test FooterUsernames are present
+	public void TestFooterUsernames() {
+		Logger = report.createTest("test Test FooterUsernames are present");
+		loginpage.isFooterUsernamesPresent();
+		Assert.assertTrue(loginpage.isFooterUsernamesPresent());
+		Logger.pass("Validated usernames are present in the footer of loginpage");
+	}
+	
+	@Test(priority = 12)
+	// Method to Test FooterUsernames are present
+	public void TestFooterPassword() {
+		Logger = report.createTest("test Test TestFooterPassword is present");
+		loginpage.isFooterPasswordPresent();
+		Assert.assertTrue(loginpage.isFooterPasswordPresent());
+		Logger.pass("Validated password is present in the footer of loginpage");
 	}
 	
 }

@@ -1,5 +1,7 @@
 package com.saucedemo.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -15,8 +17,13 @@ public class LoginPage extends DriverScript {
 	@FindBy(id = "login-button") private WebElement loginButton;
 	@FindBy(xpath = "//h3[@data-test='error']") private WebElement BlankUsernameError;
 	@FindBy(xpath = "//h3[@data-test='error']") private WebElement BlankPasswordError;
-	
+	@FindBy(xpath = "//h3[@data-test='error']") private WebElement ErrorText;
 
+	@FindBy(tagName = "a") private List<WebElement> linksInLoginPage;
+	
+	//@FindBy(linkText = "Twitter") private WebElement Twitter;
+	@FindBy(xpath= "//*[@id='login_credentials']/h4") private WebElement FooterUsernames;
+	@FindBy(xpath= "//*[@id=\'root\']/div/div[2]/div[2]/div/div[2]/h4") private WebElement FooterPassword;
 	
 	// ***************************** Page Initialization *****************************
 
@@ -29,7 +36,6 @@ public class LoginPage extends DriverScript {
 	public void enterUsername(String username) {
 		usernameTextbox.sendKeys(username);
 	}
-
 		
 	public void enterPassword(String password) {
 		passwordTextbox.sendKeys(password);
@@ -51,6 +57,10 @@ public class LoginPage extends DriverScript {
 		return BlankPasswordError.isDisplayed();
 	}
 	
+	public boolean isErrorTextPresent() {
+		return ErrorText.isDisplayed();
+	}
+		
 	public void validateErrorMessage(String errorTextActual, String errorTextExpected) {
 		Assert.assertEquals(errorTextActual, errorTextExpected);
 	}
@@ -61,5 +71,46 @@ public class LoginPage extends DriverScript {
 	public String getTextPasswordError() {
 		return getText(BlankPasswordError);
 	}
+	
+	public String getErrorText() {
+		return getText(ErrorText);
+	}
+	
+	// Method to count the number of links in this page
+		public int PageLinkCount() {
+			int size = linksInLoginPage.size();
+			System.out.println("Page link count in this page : "+size);
+			for (int i = 1;i<size;i++){
+				WebElement a = linksInLoginPage.get(i);
+				String c = a.getText();
+				System.out.println("Names of the links :"+c);
+				}
+			return size;
+		}
+	
+//============================================================================================================
+	
+	//This method is used to perform login for valid and invalid user using dataPtovider named "loginDataProvider"
+	public void performLogin(String username,String password ) {
+		usernameTextbox.clear();
+		usernameTextbox.sendKeys(username);
+		passwordTextbox.clear();
+		passwordTextbox.sendKeys(password);
+		loginButton.click();
+	}
+	
+	public String getErrorMessageText() {
+		return ErrorText.getText();
+	}
 
+
+
+	public boolean isFooterUsernamesPresent() {
+		return FooterUsernames.isDisplayed();
+	}
+	
+	public boolean isFooterPasswordPresent() {
+		return FooterPassword.isDisplayed();
+	}
+	
 }
