@@ -6,15 +6,33 @@ import org.testng.Assert;
 import com.saucedemo.base.DriverScript;
 import org.openqa.selenium.WebElement;
 
-
-
-
-
-
 public class CartPage extends DriverScript {
-	@FindBy(id="add-to-cart-sauce-labs-bike-light") private WebElement cartButton;
-	@FindBy(xpath = "//div[@class=\"inventory_item_name\"]") private WebElement cartItem;
-	@FindBy(xpath = "//a[@class='shopping_cart_link' and @data-test='shopping-cart-link']") private WebElement cartLink;
+	@FindBy(id="add-to-cart-sauce-labs-bike-light") 
+	private WebElement cartButton;
+	@FindBy(xpath = "//div[@class=\"inventory_item_name\"]") 
+	private WebElement cartItem;
+	@FindBy(xpath = "//a[@class='shopping_cart_link' and @data-test='shopping-cart-link']")
+    private WebElement shoppingCartLink;
+	@FindBy(id="remove-sauce-labs-bike-light") 
+	private WebElement removeItemButton;
+	@FindBy(id="checkout")
+	private WebElement checkoutButton;
+	@FindBy(id="first-name")
+	private WebElement firstNameField;
+	@FindBy(id="last-name")
+	private WebElement lastNameField;
+	@FindBy(id="postal-code")
+	private WebElement zipCodeField;
+	@FindBy(id="continue")
+	private WebElement checkoutConinueButton;
+	@FindBy(id="finish")
+	private WebElement checkoutFinishButton;
+	@FindBy(className="summary_info")
+	private WebElement summary;
+	@FindBy(className="summary_subtotal_label")
+	private WebElement SummarySubtotal;
+	
+	
 	
 	public CartPage() {
 		PageFactory.initElements(driver,this);
@@ -24,17 +42,59 @@ public class CartPage extends DriverScript {
 		cartButton.click();
 		
 	}
+	
 	public void validateItemText(String textActual, String textExpected) {
 		Assert.assertEquals(textActual, textExpected);
 	}
+	
 	public String getTextElement() {
 		return getText(cartItem);
 	}
 	
  public void clickCartLink() {
-	 cartLink.click();
+	 shoppingCartLink.click();
  }
-    
-	
+ 
+ public void clickRemoveButton() {
+	 removeItemButton.click();
+	 
+ }
+ 
+ public void clickCheckoutButton() {
+	 checkoutButton.click();
+ }
+ 
+ public void enterFirstName(String firstname) {
+	 firstNameField.sendKeys(firstname);
+	 
+ }
+ 
+ public void enterLastName(String lastname) {
+	 lastNameField.sendKeys(lastname);
+ }
+ 
+ public void enterZipcode(String zipcode) {
+	 zipCodeField.sendKeys(zipcode);
+  }
+ 
+ public void clickContinueCheckoutButton() {
+	 checkoutConinueButton.click();
+	 
+ }
+ 
+ public void clickFinishChekoutButton() {
+	 checkoutFinishButton.click();
+ }
+ 
+ public void veryfyPaymentSummary() {
+	 Assert.assertTrue(summary.isDisplayed(), "Summary is not displayed");
+ }
+ 
+ public void fillForm() {
+	enterFirstName("John");
+	enterLastName("Doe");
+	enterZipcode("60630");
+		
+	}
 }
 
