@@ -36,7 +36,7 @@ public class CartPage extends DriverScript {
 	private WebElement removeButton;
 	@FindBy(xpath = "//div[@class=\"inventory_item_name\"]")
     private WebElement itemOnCart;
-	@FindBy(id = id="continue-shopping)
+	@FindBy(id="continue-shopping")
 	private WebElement continuetoHomePageButton;
 	
 
@@ -116,15 +116,16 @@ public class CartPage extends DriverScript {
         }
     }
 
-    public void verifyItemRemovedFromCart() {
+   /* public void verifyItemRemovedFromCart() {
         assertFalse("Item should be removed from the cart", isItemDisplayed());
-    }
+    }*/
 
 
-private void assertFalse(String string, boolean itemDisplayed) {
+/*private void assertFalse(String string, boolean itemDisplayed) {
 	// TODO Auto-generated method stub
 	
 }
+*/
 
 public void clickBContinueShoppingButtonfrmCart() {
 	continuetoHomePageButton.click();
