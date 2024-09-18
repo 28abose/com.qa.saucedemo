@@ -18,7 +18,7 @@
 		<commonio.version>2.16.1</commonio.version>
 		<extendreport.version>4.0.9</extendreport.version>
 		<mavensurefire.version>3.5.0</mavensurefire.version>
-		
+
 	</properties>
 
 	<dependencies>
@@ -70,9 +70,9 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>${mavensurefire.version}</version>
 				<configuration>
-					<suiteXmlFiles>
-						<suiteXmlFile>testng.xml</suiteXmlFile>
-					</suiteXmlFiles>
+
+					<reportsDirectory>
+						${project.build.directory}/surefire-reports</reportsDirectory>
 				</configuration>
 			</plugin>
 
