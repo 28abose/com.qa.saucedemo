@@ -2,9 +2,18 @@ package com.saucedemo.pages;
 
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import com.saucedemo.base.DriverScript;
+
+import static org.testng.Assert.assertTrue;
+
+import java.util.List;
 import java.util.NoSuchElementException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class CartPage extends DriverScript {
@@ -35,10 +44,9 @@ public class CartPage extends DriverScript {
 	@FindBy(id = "remove-sauce-labs-bike-light")
 	private WebElement removeButton;
 	@FindBy(xpath = "//div[@class=\"inventory_item_name\"]")
-    private WebElement itemOnCart;
-	@FindBy(id="continue-shopping")
+	private WebElement itemOnCart;
+	@FindBy(id = "continue-shopping")
 	private WebElement continuetoHomePageButton;
-	
 
 	public CartPage() {
 		PageFactory.initElements(driver, this);
@@ -105,32 +113,23 @@ public class CartPage extends DriverScript {
 	public void clickRemoveitemCart() {
 		removeButton.click();
 	}
-	
 
-    public boolean isItemDisplayed() {
-        try {
-            WebElement item = itemOnCart;
-            return item.isDisplayed();
-        } catch (NoSuchElementException e) {
-            return false;
-        }
+	
+	public void clickBContinueShoppingButtonfrmCart() {
+		continuetoHomePageButton.click();
+
+	}
+
+	public void checkout() {
+
+		clickCartButton();
+		clickCartLink();
+		clickCheckoutButton();
+	}
+	
+    public void checkItemRemoved() {
+	List<WebElement> cartItems = driver.findElements(By.className("cart_item"));
+    Assert.assertTrue(cartItems.isEmpty(), "The cart is not empty!");
     }
-
-   /* public void verifyItemRemovedFromCart() {
-        assertFalse("Item should be removed from the cart", isItemDisplayed());
-    }*/
-
-
-/*private void assertFalse(String string, boolean itemDisplayed) {
-	// TODO Auto-generated method stub
-	
 }
-*/
-
-public void clickBContinueShoppingButtonfrmCart() {
-	continuetoHomePageButton.click();
-	
-}
-    
-
-}
+// test comment
