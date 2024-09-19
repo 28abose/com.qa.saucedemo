@@ -132,4 +132,3 @@ public class CartPage extends DriverScript {
     Assert.assertTrue(cartItems.isEmpty(), "The cart is not empty!");
     }
 }
-// test comment
