@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class LoginPageTests extends BaseTest {
 	
 		
-	//@Test(priority = 1)
+	@Test(priority = 1)
 	public void testLoginPageTitle() {
 		Logger = report.createTest("test login page title");
 		String pageTitle = loginpage.getLoginPageTitle();
@@ -17,7 +17,7 @@ public class LoginPageTests extends BaseTest {
 		Logger.pass("login page title matched");
 	}
 	
-	//@Test(priority = 2,dataProvider ="saucedemo")
+	@Test(priority = 2,dataProvider ="saucedemo")
 	public void testLoginFunction(String username, String password) throws InterruptedException {
 		Logger = report.createTest("test login functionality");
 		loginpage.enterUsername(username);

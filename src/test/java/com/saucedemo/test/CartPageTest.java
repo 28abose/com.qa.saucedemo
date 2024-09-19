@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 public class CartPageTest extends BaseTest {
 
-	// @Test
+	 @Test
 
 	public void testCartItems() throws InterruptedException {
 		Logger = report.createTest("Test Add Item to shopping cart");
@@ -23,7 +23,7 @@ public class CartPageTest extends BaseTest {
 	}
 
 	// Add and remove item button tested from Home page
-	// @Test
+	 @Test
 	public void testAddAndRemoveitem() throws InterruptedException {
 		Logger = report.createTest("Test remove item button on homepage");
 		login();
@@ -37,7 +37,7 @@ public class CartPageTest extends BaseTest {
 		// Have to add assert here?
 	}
 
-	// @Test
+	@Test
 	public void testCheckout() {
 		Logger = report.createTest("Test checkout button clicking from shopping cart");
 		login();
@@ -51,7 +51,7 @@ public class CartPageTest extends BaseTest {
 
 	}
 
-	// @Test
+	@Test
 	public void testCheckoutForm() throws InterruptedException {
 		Logger = report.createTest("Test completion of checkout process");
      	testCheckout();
@@ -77,7 +77,7 @@ public class CartPageTest extends BaseTest {
 
 	}
 
-	// @Test
+	@Test
 	public void testCheckoutDetails() throws InterruptedException {
 		Logger = report.createTest("Test payment details on checkout finish page");
 		testCheckout();
@@ -91,7 +91,7 @@ public class CartPageTest extends BaseTest {
 		cartpage.veryfyPaymentSummary();
 		Logger.pass("Payment information verified successfully");
 	}
-	// @Test
+	@Test
 
 	public void testRemoveitemCartpage() throws InterruptedException {
 		Logger = report.createTest("Test removal of item from shopping cart");
