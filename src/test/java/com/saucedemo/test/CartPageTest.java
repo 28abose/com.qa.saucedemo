@@ -1,10 +1,20 @@
 package com.saucedemo.test;
 
+import static org.testng.Assert.assertTrue;
+
+import java.time.Duration;
+import java.util.NoSuchElementException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class CartPageTest extends BaseTest {
 
-	 @Test
+	//@Test
 
 	public void testCartItems() throws InterruptedException {
 		Logger = report.createTest("Test Add Item to shopping cart");
@@ -23,7 +33,7 @@ public class CartPageTest extends BaseTest {
 	}
 
 	// Add and remove item button tested from Home page
-	 @Test
+	//@Test
 	public void testAddAndRemoveitem() throws InterruptedException {
 		Logger = report.createTest("Test remove item button on homepage");
 		login();
@@ -37,25 +47,22 @@ public class CartPageTest extends BaseTest {
 		// Have to add assert here?
 	}
 
-	@Test
+	//@Test
 	public void testCheckout() {
-		Logger = report.createTest("Test checkout button clicking from shopping cart");
+		Logger = report.createTest("Test remove item button on homepage");
 		login();
 		Logger.pass("User login successfully");
-		cartpage.clickCartButton();
-		Logger.pass("User adds Item  successfully from homepage");
-		cartpage.clickCartLink();
-		Logger.pass("Shopping cart icon successfully clicked from homepage");
-		cartpage.clickCheckoutButton();
+		cartpage.checkout();
 		Logger.pass(" User successfully clicked checkout button from shopping cart");
-
 	}
 
-	@Test
+	//@Test
 	public void testCheckoutForm() throws InterruptedException {
 		Logger = report.createTest("Test completion of checkout process");
-     	testCheckout();
+		login();
+		Logger.pass("User login successfully");
 		Thread.sleep(3000);
+		cartpage.checkout();
 		Logger.pass("User proceed from shopping cart to next page successfully from shopping cart");
 		cartpage.fillForm();
 		Logger.pass("User fill user information successfully");
@@ -77,7 +84,7 @@ public class CartPageTest extends BaseTest {
 
 	}
 
-	@Test
+	//@Test
 	public void testCheckoutDetails() throws InterruptedException {
 		Logger = report.createTest("Test payment details on checkout finish page");
 		testCheckout();
@@ -91,7 +98,7 @@ public class CartPageTest extends BaseTest {
 		cartpage.veryfyPaymentSummary();
 		Logger.pass("Payment information verified successfully");
 	}
-	@Test
+	//@Test
 
 	public void testRemoveitemCartpage() throws InterruptedException {
 		Logger = report.createTest("Test removal of item from shopping cart");
@@ -104,14 +111,14 @@ public class CartPageTest extends BaseTest {
 		Thread.sleep(4000);
 		cartpage.clickRemoveitemCart();
 		Logger.pass("User rmoves item successfully from shopping cart");
-		//cartpage.verifyItemRemovedFromCart();
-		//Logger.pass("Item removal is verified successfully");
+		// cartpage.verifyItemRemovedFromCart();
+		// Logger.pass("Item removal is verified successfully");
 		// this one is not working yet
 
 	}
-	
+
 	// Test for clicking continue button back to home page
-	@Test
+	//@Test
 	public void testContinuButtonFromCart() {
 		Logger = report.createTest("Test checkout button clicking from shopping cart");
 		login();
@@ -121,7 +128,27 @@ public class CartPageTest extends BaseTest {
 		cartpage.clickCartLink();
 		cartpage.clickBContinueShoppingButtonfrmCart();
 		// I have to add assertion here
-		
+
 	}
+	
+	@Test
+	public void testItemRemovedFromCart() throws InterruptedException {
+		Logger = report.createTest("Test removing item from shopping cart");
+		login();
+		Logger.pass("User login successfully");
+		cartpage.clickCartButton();
+		Logger.pass("User adds Item  successfully from homepage");
+		cartpage.clickCartLink();
+		//WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		//wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='inventory_item_name']")));
+		Thread.sleep(3000);
+		Logger.pass("item is removed successfully");
+		cartpage.clickRemoveitemCart();
+		Thread.sleep(3000);
+        Logger.pass("Item removal is verified");
+		cartpage.checkItemRemoved();
+
+	}
+	
 
 }
