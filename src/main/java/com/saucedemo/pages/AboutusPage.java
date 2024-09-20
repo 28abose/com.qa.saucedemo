@@ -46,6 +46,9 @@ public class AboutusPage extends DriverScript {
 	public String getproductTextElement() {
 		return getText(productlink);
 	}
-
+//create testcases for all links
+	//create testcases for signup
+	//create testcases for images
+	//create testcases for 
 
 }
