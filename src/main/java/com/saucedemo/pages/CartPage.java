@@ -47,6 +47,10 @@ public class CartPage extends DriverScript {
 	private WebElement itemOnCart;
 	@FindBy(id = "continue-shopping")
 	private WebElement continuetoHomePageButton;
+	@FindBy(id = "add-to-cart-sauce-labs-backpack")
+	private WebElement SecondItemAddToCartButton;	
+	@FindBy(id="remove-sauce-labs-backpack")
+	private WebElement removeSecondItemButton;
 
 	public CartPage() {
 		PageFactory.initElements(driver, this);
@@ -114,21 +118,39 @@ public class CartPage extends DriverScript {
 		removeButton.click();
 	}
 
-	
-	public void clickBContinueShoppingButtonfrmCart() {
+	public void clickContinueShoppingButtonfrmCart() {
 		continuetoHomePageButton.click();
 
 	}
 
 	public void checkout() {
-
 		clickCartButton();
 		clickCartLink();
 		clickCheckoutButton();
 	}
-	
-    public void checkItemRemoved() {
-	List<WebElement> cartItems = driver.findElements(By.className("cart_item"));
-    Assert.assertTrue(cartItems.isEmpty(), "The cart is not empty!");
+
+	public void checkItemRemoved() {
+		List<WebElement> cartItems = driver.findElements(By.className("cart_item"));
+		Assert.assertTrue(cartItems.isEmpty(), "The cart is not empty!");
+	}
+
+	public int getItemsNumberfromCart() {
+		List<WebElement> cartItems = driver.findElements(By.className("cart_item"));
+		int size = cartItems.size();
+		System.out.println(size);
+		return size;
+	}
+
+	public void checkItemDisplayedInCart() {
+		Assert.assertTrue(cartItem.isDisplayed(), "The cart is not empty!");
+	}
+
+	public void addSecondItem() {
+    	SecondItemAddToCartButton.click();
+    	
     }
+	
+	public void removeSecondItem() {
+		removeSecondItemButton.click();	
+	}
 }
