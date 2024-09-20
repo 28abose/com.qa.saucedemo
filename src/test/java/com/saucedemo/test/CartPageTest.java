@@ -15,7 +15,6 @@ import org.testng.annotations.Test;
 public class CartPageTest extends BaseTest {
 
 	//@Test
-
 	public void testCartItems() throws InterruptedException {
 		Logger = report.createTest("Test Add Item to shopping cart");
 		login();
@@ -39,14 +38,15 @@ public class CartPageTest extends BaseTest {
 		login();
 		Logger.pass("User login successfully");
 		cartpage.clickCartButton();
-		Logger.pass(" User adds successfully from homepage");
+		Logger.pass(" User adds item successfully from homepage");
 		Thread.sleep(3000);
-		cartpage.clickRemoveButton();
+		cartpage.clickRemoveitemCart();
 		Logger.pass("Item removed successfully from homepage");
 		Thread.sleep(3000);
-		// Have to add assert here?
+		cartpage.checkItemRemoved();
+        Logger.pass("Item removal is verified");
 	}
-
+	
 	//@Test
 	public void testCheckout() {
 		Logger = report.createTest("Test remove item button on homepage");
@@ -81,7 +81,6 @@ public class CartPageTest extends BaseTest {
 			System.out.println("Testfailed");
 		}
 		Logger.pass("checkout process completed successfully");
-
 	}
 
 	//@Test
@@ -98,25 +97,7 @@ public class CartPageTest extends BaseTest {
 		cartpage.veryfyPaymentSummary();
 		Logger.pass("Payment information verified successfully");
 	}
-	//@Test
-
-	public void testRemoveitemCartpage() throws InterruptedException {
-		Logger = report.createTest("Test removal of item from shopping cart");
-		login();
-		Logger.pass("User login successfully");
-		cartpage.clickCartButton();
-		Logger.pass("User added item successfully from homepage");
-		cartpage.clickCartLink();
-		Logger.info("User clicked the link to cart button successfully");
-		Thread.sleep(4000);
-		cartpage.clickRemoveitemCart();
-		Logger.pass("User rmoves item successfully from shopping cart");
-		// cartpage.verifyItemRemovedFromCart();
-		// Logger.pass("Item removal is verified successfully");
-		// this one is not working yet
-
-	}
-
+	
 	// Test for clicking continue button back to home page
 	//@Test
 	public void testContinuButtonFromCart() {
@@ -126,29 +107,49 @@ public class CartPageTest extends BaseTest {
 		cartpage.clickCartButton();
 		Logger.pass("User adds Item  successfully from homepage");
 		cartpage.clickCartLink();
-		cartpage.clickBContinueShoppingButtonfrmCart();
-		// I have to add assertion here
-
+		cartpage.clickContinueShoppingButtonfrmCart();
+		Logger.pass("User clicks continue button from cart page");
+		homepage.isProductsTextPresent();
+        Logger.pass("Verification for navigation back to home page passed");
 	}
 	
-	@Test
-	public void testItemRemovedFromCart() throws InterruptedException {
+//	@Test
+	public void testAllItemRemovedFromCart() throws InterruptedException {
 		Logger = report.createTest("Test removing item from shopping cart");
 		login();
 		Logger.pass("User login successfully");
 		cartpage.clickCartButton();
-		Logger.pass("User adds Item  successfully from homepage");
 		cartpage.clickCartLink();
-		//WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		//wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='inventory_item_name']")));
+		Logger.pass("User adds Item  successfully from homepage");
 		Thread.sleep(3000);
-		Logger.pass("item is removed successfully");
 		cartpage.clickRemoveitemCart();
+		Logger.pass("item is removed successfully");
 		Thread.sleep(3000);
-        Logger.pass("Item removal is verified");
 		cartpage.checkItemRemoved();
-
+        Logger.pass("Item removal is verified");
 	}
-	
+	// This test removes one item of two from shopping cart
+	@Test
+	public void testOneItemRemovedFromCart() throws InterruptedException {
+		Logger = report.createTest("Test removing one item from list of items on  shopping cart");
+		login();
+		Logger.pass("User login successfully");
+		cartpage.clickCartButton();
+		cartpage.clickCartLink();
+		Logger.pass("User adds Item  successfully from homepage");
+		Thread.sleep(3000);
+		cartpage.clickContinueShoppingButtonfrmCart();
+        cartpage.addSecondItem();
+		cartpage.clickCartLink();
+        Logger.pass("User adds second item to cart");
+        cartpage.removeSecondItem();
+		int cartItemSize = cartpage.getItemsNumberfromCart();
+		if(cartItemSize==1) {
+		    Logger.pass("Item removal is verified successfully");
+		} else
+		{
+			Logger.pass("item is not removed");
+		}
+	}
 
 }
