@@ -56,7 +56,7 @@ public class CartPageTest extends BaseTest {
 		Logger.pass(" User successfully clicked checkout button from shopping cart");
 	}
 
-	//@Test
+	@Test
 	public void testCheckoutForm() throws InterruptedException {
 		Logger = report.createTest("Test completion of checkout process");
 		login();

@@ -24,7 +24,10 @@ public class DriverScript {
 	public DriverScript() {
 		try
 		{
-			File file = new File(".\\src\\test\\resources\\config\\config.properties");
+			// File file = new File(".\\src\\test\\resources\\config\\config.properties");
+
+File file = new File("./src/test/resources/config/config.properties");
+
 			FileInputStream fis = new FileInputStream(file);
 			prop = new Properties();
 			prop.load(fis);

@@ -61,8 +61,6 @@ public class BaseTest extends DriverScript{
 		logoutpage = new LogoutPage();
 		aboutuspage = new AboutusPage();
 	}
-	
-	
 	@AfterMethod
 	public void tearDown(ITestResult result) {
 		if (result.getStatus()==ITestResult.FAILURE) 
