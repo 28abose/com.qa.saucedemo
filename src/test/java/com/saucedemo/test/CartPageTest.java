@@ -151,5 +151,4 @@ public class CartPageTest extends BaseTest {
 			Logger.pass("item is not removed");
 		}
 	}
-
 }
