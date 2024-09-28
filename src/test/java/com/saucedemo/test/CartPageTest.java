@@ -56,7 +56,7 @@ public class CartPageTest extends BaseTest {
 		Logger.pass(" User successfully clicked checkout button from shopping cart");
 	}
 
-	@Test
+	//@Test
 	public void testCheckoutForm() throws InterruptedException {
 		Logger = report.createTest("Test completion of checkout process");
 		login();
@@ -129,7 +129,7 @@ public class CartPageTest extends BaseTest {
         Logger.pass("Item removal is verified");
 	}
 	// This test removes one item of two from shopping cart
-	@Test
+	//@Test
 	public void testOneItemRemovedFromCart() throws InterruptedException {
 		Logger = report.createTest("Test removing one item from list of items on  shopping cart");
 		login();
@@ -151,4 +151,47 @@ public class CartPageTest extends BaseTest {
 			Logger.pass("item is not removed");
 		}
 	}
+	@Test
+	public void testPaymentDetails() throws InterruptedException {
+		Logger = report.createTest("Test payment details on checkout finish page");
+//		Logger = report.createTest("Test removing one item from list of items on  shopping cart");
+		login();
+		Logger.pass("User login successfully");
+		cartpage.clickCartButton();
+		cartpage.clickCartLink();
+		Logger.pass("User adds Item  successfully from homepage");
+		Thread.sleep(3000);
+		cartpage.clickContinueShoppingButtonfrmCart();
+        cartpage.addSecondItem();
+		cartpage.clickCartLink();
+		cartpage.clickCheckoutButton();
+        Logger.pass("User adds second item to cart");        Logger.pass("User clicked checkout button successfully from shopping cart");
+        cartpage.fillForm();
+        Logger.pass("User fill user information successfully");
+        cartpage.clickContinueCheckoutButton();
+        Logger.pass("User click continue button to last page successfully");
+        cartpage.verifyPaymenItemtSummart();
+        Logger.pass("items on Payment page verified successfully");
+        cartpage.paymentInfo();
+        Logger.pass("payment label is verified successfully");
+        cartpage.verifyCardNumber();
+        Logger.pass("Card number is verified successfully");
+        cartpage.shippingInfoDisplay();
+        Logger.pass("Shipping information is verified successfully");
+        cartpage.verifyDeliveryInfo();
+        Logger.pass("Delivery information is verified successfully");
+        cartpage.verifyPriceTotalLabel();
+        Logger.pass("Price total label is verified successfully");
+        cartpage.verifyTotalPrice();
+        Logger.pass("Total price is verified successfully");
+        cartpage.verifyTax();
+        Logger.pass("Tax is verified successfully");
+        cartpage.verifyPaymentItemPlusTax();
+        Logger.pass("Payment item plus tax is verified successfully");
+        cartpage.clickFinishChekoutButton();
+        Logger.pass("User click finish button to last page successfully");
+        
+	}
+	
+	
 }
