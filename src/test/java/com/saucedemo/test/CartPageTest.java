@@ -93,7 +93,6 @@ public class CartPageTest extends BaseTest {
 		Thread.sleep(3000);
 		cartpage.clickContinueCheckoutButton();
 		Logger.pass("User click continue button to last page successfully");
-		// testCheckoutForm();
 		cartpage.veryfyPaymentSummary();
 		Logger.pass("Payment information verified successfully");
 	}
@@ -154,7 +153,6 @@ public class CartPageTest extends BaseTest {
 	@Test
 	public void testPaymentDetails() throws InterruptedException {
 		Logger = report.createTest("Test payment details on checkout finish page");
-//		Logger = report.createTest("Test removing one item from list of items on  shopping cart");
 		login();
 		Logger.pass("User login successfully");
 		cartpage.clickCartButton();
@@ -190,7 +188,8 @@ public class CartPageTest extends BaseTest {
         Logger.pass("Payment item plus tax is verified successfully");
         cartpage.clickFinishChekoutButton();
         Logger.pass("User click finish button to last page successfully");
-        
+        cartpage.verifyThankyouMessage();
+        Logger.pass("Thank you message is verified successfully");
 	}
 	
 	
