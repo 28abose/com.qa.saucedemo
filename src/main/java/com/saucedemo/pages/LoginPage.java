@@ -49,6 +49,10 @@ public class LoginPage extends DriverScript {
 		return driver.getTitle();
 	}
 	
+	public boolean isLoginButtonPresent() {
+		return loginButton.isDisplayed();
+	}
+	
 	public boolean isBlankUsernameErrorPresent() {
 		return BlankUsernameError.isDisplayed();
 	}

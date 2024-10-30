@@ -18,8 +18,18 @@ public class HomePage extends DriverScript {
 	// ***************************** Page Locators *****************************
 	@FindBy(id = "react-burger-menu-btn") private WebElement burgerMenu;
 	@FindBy(id = "about_sidebar_link") private WebElement aboutLink;
+	@FindBy(id = "logout_sidebar_link") private WebElement logout;
 	@FindBy(xpath = "//div[text()='Swag Labs']") private WebElement SwaglabsText;
 	@FindBy(xpath = "//span[text()='Products']") private WebElement ProductsText;
+	
+	@FindBy(xpath = "//div[contains(text(),'Sauce Labs Backpack')]") private WebElement product;
+	//@FindBy(xpath = "//div[text()='Sauce Labs Backpack']//parent::a//parent::div[@class='inventory_item_label']//parent::div[@class='inventory_item_description']//div[@class='inventory_item_price']") private WebElement backpackPrice;
+	//@FindBy(xpath = "(//div[@class='inventory_item_description']//div[@data-test='inventory-item-price'])[1]") private WebElement price;
+	@FindBy(xpath = "//div[text()='Sauce Labs Backpack']/../../..//div[@class='inventory_item_price']") private WebElement backpackPrice;
+	@FindBy(xpath = "//div[text()='Sauce Labs Onesie']/../../..//div[@class='inventory_item_price']") private WebElement onesiePrice;
+	
+	
+	
 
 	@FindBy(className = "inventory_item_price") private List<WebElement> priceList;
 	@FindBy(className = "inventory_item_name") private List<WebElement> nameList;
@@ -45,6 +55,10 @@ public class HomePage extends DriverScript {
 
 	public void clickburgerMenu() {
 		burgerMenu.click();
+	}
+	
+	public void clickLogout() {
+		logout.click();
 	}
 
 	public void clickaboutLink() {
@@ -194,4 +208,16 @@ public class HomePage extends DriverScript {
 		return PrivacyPolicy.getText();
 		
 	}
+	//================================================================================================
+	
+	public String PriceValidationBackpack() {
+	// Get the price text
+     return backpackPrice.getText();
+   	}
+	public String PriceValidationOnesie() {
+	// Get the price text
+	   return onesiePrice.getText();
+	   	}
+     
 }
+

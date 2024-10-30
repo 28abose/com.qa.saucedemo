@@ -19,7 +19,7 @@ public class HomePageTests extends BaseTest {
 		Logger.pass("verified the page title contains Swag Labs");
 	}
 
-	//@Test(priority = 102)
+	@Test(priority = 102)
 	public void testSwaglabsText() {
 		Logger = report.createTest("test Swag Labs text is present in the header of homepage");
 		login();
@@ -31,7 +31,7 @@ public class HomePageTests extends BaseTest {
 		Logger.pass("verified the homepage header contains Swag Labs text/label");
 	}
 
-	//@Test(priority = 103)
+	@Test(priority = 103)
 	public void testProductsText() {
 		Logger = report.createTest("test Products text is present in the header of homepage");
 		login();
@@ -42,7 +42,7 @@ public class HomePageTests extends BaseTest {
 		Logger.pass("verified the homepage header contains Products text/label");
 	}
 
-	//@Test(priority = 104)
+	@Test(priority = 104)
 	public void testDisplaySize() {
 		Logger = report.createTest("test Products display size");
 		login();
@@ -55,7 +55,7 @@ public class HomePageTests extends BaseTest {
 		Logger.pass("verified that 6 products are displayed in the page");
 	}
 	
-	//@Test(priority = 110)
+	@Test(priority = 110)
 	// Method to count the number of links in this page
 	public void TotalLinkInHomepage() {
 		Logger = report.createTest("test total number of links in HomePage");
@@ -69,7 +69,7 @@ public class HomePageTests extends BaseTest {
 	}
 	
 
-	//@Test(priority = 120)
+	@Test(priority = 120)
 	// Main method to compare filter values
 	public void compareFilterValuesAssending() {
 		Logger = report.createTest("test filter : Price (low to high) is working successfully");
@@ -99,7 +99,7 @@ public class HomePageTests extends BaseTest {
 		Logger.pass("Compare the lists that sorted assending order of price");
 	}
 
-	//@Test(priority = 121)
+	@Test(priority = 121)
 	// Main method to compare filter values
 	public void compareFilterValuesDescending() {
 		Logger = report.createTest("test filter : Price (high to low) is working successfully");
@@ -133,7 +133,7 @@ public class HomePageTests extends BaseTest {
 		Logger.pass("Compare the lists that sorted desending order of price");
 	}
 
-	//@Test(priority = 122)
+	@Test(priority = 122)
 	// Main method to compare filter values
 	public void compareFilterNameAscending() {
 		Logger = report.createTest("test filter : Name (A to Z) is working successfully");
@@ -165,7 +165,7 @@ public class HomePageTests extends BaseTest {
 
 	}
 
-	//@Test(priority = 123)
+	@Test(priority = 123)
 	// Main method to compare filter values
 	public void compareFilterNameDesending() {
 		Logger = report.createTest("test filter : Name (Z to A) is working successfully");
@@ -200,7 +200,7 @@ public class HomePageTests extends BaseTest {
 
 	}
 	
-	//@Test(priority = 105)
+	@Test(priority = 105)
 	public void testfooterLinkCount() {
 		Logger = report.createTest("Test footer link count is 3");
 		login();
@@ -212,7 +212,7 @@ public class HomePageTests extends BaseTest {
 		Logger.pass("footer link count matched");
 	}
 	
-	//@Test(priority = 106)
+	@Test(priority = 106)
 	public void testTwitter() {
 		Logger = report.createTest("Test Twitter link present in the footer");
 		login();
@@ -221,7 +221,7 @@ public class HomePageTests extends BaseTest {
 		Logger.pass("Twitter link displayed successfully");
 	}
 	
-	//@Test(priority = 107)
+	@Test(priority = 107)
 	public void testFacebook() {
 		Logger = report.createTest("Test Facebook link present in the footer");
 		login();
@@ -230,7 +230,7 @@ public class HomePageTests extends BaseTest {
 		Logger.pass("Facebook link displayed successfully");
 	}
 	
-	//@Test(priority = 108)
+	@Test(priority = 108)
 	public void testLinkedIn() {
 		Logger = report.createTest("Test LinkedIn link present in the footer");
 		login();
@@ -239,7 +239,7 @@ public class HomePageTests extends BaseTest {
 		Logger.pass("LinkedIn link displayed successfully");
 	}
 	
-	//@Test(priority = 109)
+	@Test(priority = 109)
 	public void testPrivacyPolicyYearCorrect() {
 		Logger = report.createTest("Test PrivacyPolicy in the footer contains 2024");
 		login();
@@ -250,4 +250,71 @@ public class HomePageTests extends BaseTest {
 		Assert.assertTrue(yearText.contains("2024"));
 		Logger.pass("PrivacyPolicy contains year 2024");
 		}
+	
+	@Test(priority = 111)
+	public void testPriceValidationBackpack() {
+		Logger = report.createTest("test Price Validation for Backpack");
+		login();
+		Logger.pass("login successfully");
+		String priceText = homepage.PriceValidationBackpack();
+		
+		String expectedPrice = "$29.99";
+
+        // Validate the price
+        if (priceText.equals(expectedPrice)) {
+            System.out.println("Price validation passed: " + priceText);
+            Logger.pass("Price validated successfully");
+        } else {
+            System.out.println("Price validation failed. Expected: " + expectedPrice + ", but found: " + priceText);
+        }
+		
 }
+	
+	@Test(priority = 112)
+	public void testPriceValidationOnesie() {
+		Logger = report.createTest("test Price Validation for Onesie");
+		login();
+		Logger.pass("login successfully");
+		String priceText = homepage.PriceValidationOnesie();
+		
+		String expectedPrice = "$7.99";
+
+        // Validate the price
+        if (priceText.equals(expectedPrice)) {
+            System.out.println("Price validation passed: " + priceText);
+            Logger.pass("Price validated successfully");
+        } else {
+            System.out.println("Price validation failed. Expected: " + expectedPrice + ", but found: " + priceText);
+        	}
+		}
+	
+	@Test(priority = 121)
+		public void testLogout() {
+			Logger = report.createTest("test Logout functionality");
+			login();
+			Logger.pass("login successfully");
+			homepage.clickburgerMenu();
+			Logger.pass("User clicked burger menu");
+			homepage.clickLogout();
+			Logger.pass("logout successfully");
+			Assert.assertTrue(loginpage.isLoginButtonPresent());
+			Logger.pass("login button shows in the login page");
+		}
+		
+		@Test(priority = 122)
+		public void testABoutPage() throws InterruptedException {
+			Logger = report.createTest("Test for About Page starts");
+			login();
+			Logger.pass("User logs in Successfully");
+			homepage.clickburgerMenu();
+			Logger.pass("User clicked burger menu");
+			homepage.clickaboutLink();
+			Logger.pass("user clicked about link successfully");
+			String expected = "Sauce Labs: Cross Browser Testing, Selenium Testing & Mobile Testing";
+			String title = SauceLabspage.getSauceLabsPageTitle();
+			Logger.pass("page title captured");
+			System.out.println(title);
+			Assert.assertEquals(title, expected);
+			Logger.pass("page title asserted successfully");
+		}
+	}

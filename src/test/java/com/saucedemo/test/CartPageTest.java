@@ -1,20 +1,10 @@
 package com.saucedemo.test;
 
-import static org.testng.Assert.assertTrue;
-
-import java.time.Duration;
-import java.util.NoSuchElementException;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class CartPageTest extends BaseTest {
 
-	//@Test
+	@Test(priority = 1)
 	public void testCartItems() throws InterruptedException {
 		Logger = report.createTest("Test Add Item to shopping cart");
 		login();
@@ -32,7 +22,7 @@ public class CartPageTest extends BaseTest {
 	}
 
 	// Add and remove item button tested from Home page
-	//@Test
+	@Test(priority = 2)
 	public void testAddAndRemoveitem() throws InterruptedException {
 		Logger = report.createTest("Test remove item button on homepage");
 		login();
@@ -47,7 +37,7 @@ public class CartPageTest extends BaseTest {
         Logger.pass("Item removal is verified");
 	}
 	
-	//@Test
+	@Test(priority = 3)
 	public void testCheckout() {
 		Logger = report.createTest("Test remove item button on homepage");
 		login();
@@ -56,7 +46,7 @@ public class CartPageTest extends BaseTest {
 		Logger.pass(" User successfully clicked checkout button from shopping cart");
 	}
 
-	@Test
+	@Test(priority = 4)
 	public void testCheckoutForm() throws InterruptedException {
 		Logger = report.createTest("Test completion of checkout process");
 		login();
@@ -83,7 +73,7 @@ public class CartPageTest extends BaseTest {
 		Logger.pass("checkout process completed successfully");
 	}
 
-	//@Test
+	@Test(priority = 5)
 	public void testCheckoutDetails() throws InterruptedException {
 		Logger = report.createTest("Test payment details on checkout finish page");
 		testCheckout();
@@ -98,7 +88,7 @@ public class CartPageTest extends BaseTest {
 	}
 	
 	// Test for clicking continue button back to home page
-	//@Test
+	@Test(priority = 6)
 	public void testContinuButtonFromCart() {
 		Logger = report.createTest("Test checkout button clicking from shopping cart");
 		login();
@@ -112,7 +102,7 @@ public class CartPageTest extends BaseTest {
         Logger.pass("Verification for navigation back to home page passed");
 	}
 	
-//	@Test
+	@Test(priority = 7)
 	public void testAllItemRemovedFromCart() throws InterruptedException {
 		Logger = report.createTest("Test removing item from shopping cart");
 		login();
@@ -127,8 +117,9 @@ public class CartPageTest extends BaseTest {
 		cartpage.checkItemRemoved();
         Logger.pass("Item removal is verified");
 	}
+	
 	// This test removes one item of two from shopping cart
-	//@Test
+	@Test(priority = 8)
 	public void testOneItemRemovedFromCart() throws InterruptedException {
 		Logger = report.createTest("Test removing one item from list of items on  shopping cart");
 		login();
@@ -150,7 +141,8 @@ public class CartPageTest extends BaseTest {
 			Logger.pass("item is not removed");
 		}
 	}
-	@Test
+	
+	@Test(priority = 9)
 	public void testPaymentDetails() throws InterruptedException {
 		Logger = report.createTest("Test payment details on checkout finish page");
 		login();
@@ -161,9 +153,10 @@ public class CartPageTest extends BaseTest {
 		Thread.sleep(3000);
 		cartpage.clickContinueShoppingButtonfrmCart();
         cartpage.addSecondItem();
+        Logger.pass("User adds second item to cart"); 
 		cartpage.clickCartLink();
 		cartpage.clickCheckoutButton();
-        Logger.pass("User adds second item to cart");        Logger.pass("User clicked checkout button successfully from shopping cart");
+        Logger.pass("User clicked checkout button successfully from shopping cart");
         cartpage.fillForm();
         Logger.pass("User fill user information successfully");
         cartpage.clickContinueCheckoutButton();

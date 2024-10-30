@@ -1,78 +1,44 @@
 package com.saucedemo.pages;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 import com.saucedemo.base.DriverScript;
 
-import static org.testng.Assert.assertTrue;
-
-import java.util.List;
-import java.util.NoSuchElementException;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
 public class CartPage extends DriverScript {
-	@FindBy(id = "add-to-cart-sauce-labs-bike-light")
-	private WebElement cartButton;
-	@FindBy(xpath = "//div[@class=\"inventory_item_name\"]")
-	private WebElement cartItem;
-	@FindBy(xpath = "//a[@class='shopping_cart_link' and @data-test='shopping-cart-link']")
-	private WebElement shoppingCartLink;
-	@FindBy(id = "remove-sauce-labs-bike-light")
-	private WebElement removeItemButton;
-	@FindBy(id = "checkout")
-	private WebElement checkoutButton;
-	@FindBy(id = "first-name")
-	private WebElement firstNameField;
-	@FindBy(id = "last-name")
-	private WebElement lastNameField;
-	@FindBy(id = "postal-code")
-	private WebElement zipCodeField;
-	@FindBy(id = "continue")
-	private WebElement checkoutConinueButton;
-	@FindBy(id = "finish")
-	private WebElement checkoutFinishButton;
-	@FindBy(className = "summary_info")
-	private WebElement summary;
-	@FindBy(className = "summary_subtotal_label")
-	private WebElement SummarySubtotal;
-	@FindBy(id = "remove-sauce-labs-bike-light")
-	private WebElement removeButton;
-	@FindBy(xpath = "//div[@class=\"inventory_item_name\"]")
-	private WebElement itemOnCart;
-	@FindBy(id = "continue-shopping")
-	private WebElement continuetoHomePageButton;
-	@FindBy(id = "add-to-cart-sauce-labs-backpack")
-	private WebElement SecondItemAddToCartButton;
-	@FindBy(id = "remove-sauce-labs-backpack")
-	private WebElement removeSecondItemButton;
-	@FindBy(className = "cart_list")
-	private WebElement summary_itemlist;
-	@FindBy(className = "summary_subtotal_label")
-	private WebElement Itemtotal_price;
-	@FindBy(className = "summary_tax_label")
-	private WebElement tax;
-	@FindBy(className = "summary_total_label")
-	private WebElement PaymentItemPlusTax;
-	@FindBy(xpath = "//div[text()='Payment Information:']")
-	private WebElement paymentInfoLabel;
-	@FindBy(xpath = "//div[text()='Shipping Information:']")
-	private WebElement shippingInfoLabel;
-	@FindBy(xpath = "//div[text()='SauceCard #31337']")
-	private WebElement cardNumber;
-	@FindBy(xpath = "//div[text()='Free Pony Express Delivery!']")
-	private WebElement deliveryInfo;
-	@FindBy(xpath = "//div[text()='Price Total']")
-	private WebElement priceTotalLabel;
-	@FindBy(className = "complete-header")
-	private WebElement Thankyoumessage;
+	@FindBy(id = "add-to-cart-sauce-labs-bike-light")	private WebElement cartButton;
+	@FindBy(xpath = "//div[@class=\"inventory_item_name\"]") private WebElement cartItem;
+	@FindBy(xpath = "//a[@class='shopping_cart_link' and @data-test='shopping-cart-link']")	private WebElement shoppingCartLink;
+	@FindBy(id = "remove-sauce-labs-bike-light") private WebElement removeItemButton;
+	@FindBy(id = "checkout")	private WebElement checkoutButton;
+	@FindBy(id = "first-name")	private WebElement firstNameField;
+	@FindBy(id = "last-name")	private WebElement lastNameField;
+	@FindBy(id = "postal-code")	private WebElement zipCodeField;
+	@FindBy(id = "continue")	private WebElement checkoutConinueButton;
+	@FindBy(id = "finish")	private WebElement checkoutFinishButton;
+	@FindBy(className = "summary_info")	private WebElement summary;
+	@FindBy(className = "summary_subtotal_label")	private WebElement SummarySubtotal;
+	@FindBy(id = "remove-sauce-labs-bike-light")	private WebElement removeButton;
+	@FindBy(xpath = "//div[@class=\"inventory_item_name\"]")	private WebElement itemOnCart;
+	@FindBy(id = "continue-shopping")	private WebElement continuetoHomePageButton;
+	@FindBy(id = "add-to-cart-sauce-labs-backpack")	private WebElement SecondItemAddToCartButton;
+	@FindBy(id = "remove-sauce-labs-backpack")	private WebElement removeSecondItemButton;
+	@FindBy(className = "cart_list")	private WebElement summary_itemlist;
+	@FindBy(className = "summary_subtotal_label")	private WebElement Itemtotal_price;
+	@FindBy(className = "summary_tax_label")	private WebElement tax;
+	@FindBy(className = "summary_total_label")	private WebElement PaymentItemPlusTax;
+	@FindBy(xpath = "//div[text()='Payment Information:']")	private WebElement paymentInfoLabel;
+	@FindBy(xpath = "//div[text()='Shipping Information:']")	private WebElement shippingInfoLabel;
+	@FindBy(xpath = "//div[text()='SauceCard #31337']")	private WebElement cardNumber;
+	@FindBy(xpath = "//div[text()='Free Pony Express Delivery!']")	private WebElement deliveryInfo;
+	@FindBy(xpath = "//div[text()='Price Total']")	private WebElement priceTotalLabel;
+	@FindBy(className = "complete-header")	private WebElement Thankyoumessage;
 
 	public CartPage() {
 		PageFactory.initElements(driver, this);

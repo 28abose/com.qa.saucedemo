@@ -1,6 +1,5 @@
 package com.saucedemo.test;
 
-import org.openqa.selenium.Alert;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -33,7 +32,7 @@ public class LoginPageTests extends BaseTest {
 		Thread.sleep(3000);
 	}
 
-	//@Test(priority = 3)
+	@Test(priority = 3)
 	public void testUsernameBlank() throws InterruptedException {
 		Logger = report.createTest("test login functionality without username");
 		loginpage.enterUsername("");
@@ -51,7 +50,7 @@ public class LoginPageTests extends BaseTest {
 		Logger.pass("validated the error message");
 	}
 	
-	//@Test(priority = 4)
+	@Test(priority = 4)
 	public void testPasswordBlank() throws InterruptedException {
 		Logger = report.createTest("test login functionality without password");
 		loginpage.enterUsername("standard_user");
@@ -70,7 +69,7 @@ public class LoginPageTests extends BaseTest {
 	}
 	
 
-	//@Test(priority = 5)
+	@Test(priority = 5)
 	public void testUsernamePasswordMismatch() throws InterruptedException {
 		Logger = report.createTest("test login functionality without password");
 		loginpage.enterUsername("standard");
@@ -97,7 +96,7 @@ public class LoginPageTests extends BaseTest {
 		Logger.pass("login page title matched");
 	}
 	
-	//@Test(enabled = false)
+	@Test(enabled = false)
 	public void testLoginInBaseClass() {
 		Logger = report.createTest("test login from BaseClass");
 		login();
@@ -119,7 +118,7 @@ public class LoginPageTests extends BaseTest {
 	    };
 	}
 
-	//@Test(priority = 9,dataProvider ="loginDataProvider")
+	@Test(priority = 9,dataProvider ="loginDataProvider")
 	public void testLoginFeatures(String username, String password, boolean isValidUser){
 		Logger = report.createTest("Test login features using data provider");
 		loginpage.performLogin(username, password);
@@ -138,7 +137,7 @@ public class LoginPageTests extends BaseTest {
 	}
 	
 
-	//@Test(priority = 10)
+	@Test(priority = 10)
 	// Method to count the number of links in this page
 	public void TotalLinkInLoginpage() {
 		Logger = report.createTest("test total number of links in LoginPage");

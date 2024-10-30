@@ -13,11 +13,10 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.saucedemo.base.DriverScript;
-import com.saucedemo.pages.AboutusPage;
+import com.saucedemo.pages.SauceLabs;
 import com.saucedemo.pages.CartPage;
 import com.saucedemo.pages.HomePage;
 import com.saucedemo.pages.LoginPage;
-import com.saucedemo.pages.LogoutPage;
 import com.saucedemo.utils.ExcelUtils;
 import com.saucedemo.utils.HelperUtil;
 
@@ -32,8 +31,7 @@ public class BaseTest extends DriverScript{
 	HomePage homepage;
 	LoginPage loginpage;
 	CartPage cartpage;
-	LogoutPage logoutpage;
-	AboutusPage aboutuspage;
+	SauceLabs SauceLabspage;
 	
 	
 	//This method is used to login to the application before executing anything in the homepage
@@ -58,8 +56,7 @@ public class BaseTest extends DriverScript{
 		homepage = new HomePage();
 		loginpage = new LoginPage();
 		cartpage = new CartPage();
-		logoutpage = new LogoutPage();
-		aboutuspage = new AboutusPage();
+		SauceLabspage = new SauceLabs();
 	}
 	@AfterMethod
 	public void tearDown(ITestResult result) {
