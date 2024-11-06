@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -47,7 +48,8 @@ public class HomePage extends DriverScript {
 	
 	// ***************************** Page Initialization *****************************
 
-	public HomePage() {
+	public HomePage(WebDriver driver) {
+		super.setDriver(driver); 
 		PageFactory.initElements(driver, this);
 	}
 
@@ -66,7 +68,7 @@ public class HomePage extends DriverScript {
 	}
 
 	public String getHomePageTitle() {
-		return driver.getTitle();
+		return getDriver().getTitle();
 	}
 
 	public String validateSwaglabsText() {

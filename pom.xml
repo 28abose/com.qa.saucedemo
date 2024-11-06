@@ -70,6 +70,10 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>${mavensurefire.version}</version>
 				<configuration>
+					
+					<parallel>classes</parallel>
+               	    <threadCount>4</threadCount>
+
 
 					<reportsDirectory>
 						${project.build.directory}/surefire-reports</reportsDirectory>

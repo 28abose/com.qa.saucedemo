@@ -2,11 +2,13 @@ package com.saucedemo.test;
 
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentTest;
+
 public class CartPageTest extends BaseTest {
 
 	@Test(priority = 1)
 	public void testCartItems() throws InterruptedException {
-		Logger = report.createTest("Test Add Item to shopping cart");
+		ExtentTest Logger = extentReports.get().createTest("Test Add Item to shopping cart");
 		login();
 		Logger.pass("User login successfully");
 		Thread.sleep(3000);
@@ -24,7 +26,7 @@ public class CartPageTest extends BaseTest {
 	// Add and remove item button tested from Home page
 	@Test(priority = 2)
 	public void testAddAndRemoveitem() throws InterruptedException {
-		Logger = report.createTest("Test remove item button on homepage");
+		ExtentTest Logger = extentReports.get().createTest("Test remove item button on homepage");
 		login();
 		Logger.pass("User login successfully");
 		cartpage.clickCartButton();
@@ -39,7 +41,7 @@ public class CartPageTest extends BaseTest {
 	
 	@Test(priority = 3)
 	public void testCheckout() {
-		Logger = report.createTest("Test remove item button on homepage");
+		ExtentTest Logger = extentReports.get().createTest("Test remove item button on homepage");
 		login();
 		Logger.pass("User login successfully");
 		cartpage.checkout();
@@ -48,7 +50,7 @@ public class CartPageTest extends BaseTest {
 
 	@Test(priority = 4)
 	public void testCheckoutForm() throws InterruptedException {
-		Logger = report.createTest("Test completion of checkout process");
+		ExtentTest Logger = extentReports.get().createTest("Test completion of checkout process");
 		login();
 		Logger.pass("User login successfully");
 		Thread.sleep(3000);
@@ -75,7 +77,7 @@ public class CartPageTest extends BaseTest {
 
 	@Test(priority = 5)
 	public void testCheckoutDetails() throws InterruptedException {
-		Logger = report.createTest("Test payment details on checkout finish page");
+		ExtentTest Logger = extentReports.get().createTest("Test payment details on checkout finish page");
 		testCheckout();
 		Logger.pass("User clicked checkout button successfully from shopping cart");
 		cartpage.fillForm();
@@ -90,7 +92,7 @@ public class CartPageTest extends BaseTest {
 	// Test for clicking continue button back to home page
 	@Test(priority = 6)
 	public void testContinuButtonFromCart() {
-		Logger = report.createTest("Test checkout button clicking from shopping cart");
+		ExtentTest Logger = extentReports.get().createTest("Test checkout button clicking from shopping cart");
 		login();
 		Logger.pass("User login successfully");
 		cartpage.clickCartButton();
@@ -104,7 +106,7 @@ public class CartPageTest extends BaseTest {
 	
 	@Test(priority = 7)
 	public void testAllItemRemovedFromCart() throws InterruptedException {
-		Logger = report.createTest("Test removing item from shopping cart");
+		ExtentTest Logger = extentReports.get().createTest("Test removing item from shopping cart");
 		login();
 		Logger.pass("User login successfully");
 		cartpage.clickCartButton();
@@ -121,7 +123,7 @@ public class CartPageTest extends BaseTest {
 	// This test removes one item of two from shopping cart
 	@Test(priority = 8)
 	public void testOneItemRemovedFromCart() throws InterruptedException {
-		Logger = report.createTest("Test removing one item from list of items on  shopping cart");
+		ExtentTest Logger = extentReports.get().createTest("Test removing one item from list of items on  shopping cart");
 		login();
 		Logger.pass("User login successfully");
 		cartpage.clickCartButton();
@@ -144,7 +146,7 @@ public class CartPageTest extends BaseTest {
 	
 	@Test(priority = 9)
 	public void testPaymentDetails() throws InterruptedException {
-		Logger = report.createTest("Test payment details on checkout finish page");
+		ExtentTest Logger = extentReports.get().createTest("Test payment details on checkout finish page");
 		login();
 		Logger.pass("User login successfully");
 		cartpage.clickCartButton();

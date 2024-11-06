@@ -1,5 +1,6 @@
 package com.saucedemo.pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -14,13 +15,14 @@ public class SauceLabs extends DriverScript {
 	
 	
 	// initalization
-	public SauceLabs() {
+	public SauceLabs(WebDriver driver) {
+		super.setDriver(driver); 
 		PageFactory.initElements(driver, this);
 	}
 	// methods
 	
 	public String getSauceLabsPageTitle() {
-		return driver.getTitle();
+		return getDriver().getTitle();
 	}
 
 

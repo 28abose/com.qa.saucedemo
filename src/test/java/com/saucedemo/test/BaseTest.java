@@ -2,11 +2,13 @@ package com.saucedemo.test;
 
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -24,9 +26,16 @@ public class BaseTest extends DriverScript{
 	
 	
 	
-	protected static ExtentHtmlReporter extent;
-	protected static ExtentReports report;
-	protected static ExtentTest Logger;
+	//protected static ExtentHtmlReporter extent;
+	//protected static ExtentReports report;
+	//protected static ExtentTest Logger;
+	
+	private static ThreadLocal<ExtentHtmlReporter> extentHtmlReporter = new ThreadLocal<>();
+
+	protected static ThreadLocal<ExtentReports> extentReports = new ThreadLocal<>(); 
+
+	private static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
+	
 	
 	HomePage homepage;
 	LoginPage loginpage;
@@ -42,38 +51,46 @@ public class BaseTest extends DriverScript{
 	}
 	
 	
-	@BeforeSuite
-	public void setUpReport() {
-		
-		extent = new ExtentHtmlReporter("./reports/index.html");
-		report = new ExtentReports();
-		report.attachReporter(extent);
-	}
+	//@BeforeSuite 
+	@BeforeClass
+	public void setUpReport() { 
+	String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()); 
 
+	String reportPath = "./reports/index_" + timestamp + ".html"; 
+
+	ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(reportPath); 
+
+	ExtentReports report = new ExtentReports(); 
+
+	report.attachReporter(htmlReporter); 
+
+	extentHtmlReporter.set(htmlReporter);
+
+	extentReports.set(report); }
+	
+	
 	@BeforeMethod
 	public void setUp() {
 		initApplication();
-		homepage = new HomePage();
-		loginpage = new LoginPage();
-		cartpage = new CartPage();
-		SauceLabspage = new SauceLabs();
+		homepage = new HomePage(getDriver());
+		loginpage = new LoginPage(getDriver());
+		cartpage = new CartPage(getDriver());
+		SauceLabspage = new SauceLabs(getDriver());
 	}
-	@AfterMethod
-	public void tearDown(ITestResult result) {
-		if (result.getStatus()==ITestResult.FAILURE) 
-		{
-			try 
-			{
-				Logger.fail("test-failed", 
-						MediaEntityBuilder.createScreenCaptureFromPath(HelperUtil.captureScreen(driver)).build());
-			} 
-			catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		report.flush();
-		quitDriver();
+	
+	@AfterMethod 
+	public void tearDown(ITestResult result) { 
+	if (result.getStatus() == ITestResult.FAILURE) { 
+	try { 
+	extentTest.get().fail("test-failed", MediaEntityBuilder.createScreenCaptureFromPath(HelperUtil.captureScreen(getDriver())).build()); 
+	} catch (IOException e) {
+	e.printStackTrace(); 
+	} 
+	} 
+	extentReports.get().flush(); 
+	quitDriver();
 	}
+	
 	
 	@DataProvider(name="saucedemo")
 	public Object [][] testData(){

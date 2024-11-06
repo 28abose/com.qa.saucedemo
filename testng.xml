@@ -5,6 +5,9 @@
     <classes>
       <class name="com.saucedemo.test.BaseTest"/>
       <class name="com.saucedemo.test.LoginPageTests"/>
+      <class name="com.saucedemo.test.HomePageTests"/>
+      <class name="com.saucedemo.test.CartPageTest"/>
+      <class name="com.saucedemo.test.LogoutPageTests"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

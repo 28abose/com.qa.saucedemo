@@ -2,6 +2,7 @@ package com.saucedemo.pages;
 
 import java.util.List;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -27,7 +28,8 @@ public class LoginPage extends DriverScript {
 	
 	// ***************************** Page Initialization *****************************
 
-	public LoginPage() {
+	public LoginPage(WebDriver driver) {
+		super.setDriver(driver); 
 		PageFactory.initElements(driver, this);
 	}
 
@@ -46,7 +48,7 @@ public class LoginPage extends DriverScript {
 	}
 	
 	public String getLoginPageTitle() {
-		return driver.getTitle();
+		return getDriver().getTitle();
 	}
 	
 	public boolean isLoginButtonPresent() {

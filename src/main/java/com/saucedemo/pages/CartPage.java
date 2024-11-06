@@ -3,6 +3,7 @@ package com.saucedemo.pages;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -40,7 +41,8 @@ public class CartPage extends DriverScript {
 	@FindBy(xpath = "//div[text()='Price Total']")	private WebElement priceTotalLabel;
 	@FindBy(className = "complete-header")	private WebElement Thankyoumessage;
 
-	public CartPage() {
+	public CartPage(WebDriver driver) {
+		super.setDriver(driver); 
 		PageFactory.initElements(driver, this);
 	}
 
@@ -118,12 +120,12 @@ public class CartPage extends DriverScript {
 	}
 
 	public void checkItemRemoved() {
-		List<WebElement> cartItems = driver.findElements(By.className("cart_item"));
+		List<WebElement> cartItems = getDriver().findElements(By.className("cart_item"));
 		Assert.assertTrue(cartItems.isEmpty(), "The cart is not empty!");
 	}
 
 	public int getItemsNumberfromCart() {
-		List<WebElement> cartItems = driver.findElements(By.className("cart_item"));
+		List<WebElement> cartItems = getDriver().findElements(By.className("cart_item"));
 		int size = cartItems.size();
 		System.out.println(size);
 		return size;

@@ -27,4 +27,9 @@ public class HelperUtil extends DriverScript{
 		return screenPath;
 	}
 
+	public static String captureScreen(ThreadLocal<WebDriver> driver) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -6,11 +6,13 @@ import java.util.List;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentTest;
+
 public class HomePageTests extends BaseTest {
 
 	@Test(priority = 101)
 	public void testHomePageTitle() {
-		Logger = report.createTest("test HomePage Title");
+		ExtentTest Logger = extentReports.get().createTest("test HomePage Title");
 		login();
 		Logger.pass("login successfully");
 		String title = homepage.getHomePageTitle();
@@ -21,7 +23,7 @@ public class HomePageTests extends BaseTest {
 
 	@Test(priority = 102)
 	public void testSwaglabsText() {
-		Logger = report.createTest("test Swag Labs text is present in the header of homepage");
+		ExtentTest Logger = extentReports.get().createTest("test Swag Labs text is present in the header of homepage");
 		login();
 		Logger.pass("login successfully");
 		String actual = homepage.validateSwaglabsText();
@@ -33,7 +35,7 @@ public class HomePageTests extends BaseTest {
 
 	@Test(priority = 103)
 	public void testProductsText() {
-		Logger = report.createTest("test Products text is present in the header of homepage");
+		ExtentTest Logger = extentReports.get().createTest("test Products text is present in the header of homepage");
 		login();
 		Logger.pass("login successfully");
 		boolean value = homepage.isProductsTextPresent();
@@ -44,7 +46,7 @@ public class HomePageTests extends BaseTest {
 
 	@Test(priority = 104)
 	public void testDisplaySize() {
-		Logger = report.createTest("test Products display size");
+		ExtentTest Logger = extentReports.get().createTest("test Products display size");
 		login();
 		Logger.pass("login successfully");
 		int actual = homepage.getProductsGridSize();
@@ -58,7 +60,7 @@ public class HomePageTests extends BaseTest {
 	@Test(priority = 110)
 	// Method to count the number of links in this page
 	public void TotalLinkInHomepage() {
-		Logger = report.createTest("test total number of links in HomePage");
+		ExtentTest Logger = extentReports.get().createTest("test total number of links in HomePage");
 		login();
 		Logger.pass("Login successfully");
 		int actual = homepage.PageLinkCount();
@@ -72,7 +74,7 @@ public class HomePageTests extends BaseTest {
 	@Test(priority = 120)
 	// Main method to compare filter values
 	public void compareFilterValuesAssending() {
-		Logger = report.createTest("test filter : Price (low to high) is working successfully");
+		ExtentTest Logger = extentReports.get().createTest("test filter : Price (low to high) is working successfully");
 		login();
 		Logger.pass("Login successfully");
 
@@ -102,7 +104,7 @@ public class HomePageTests extends BaseTest {
 	@Test(priority = 121)
 	// Main method to compare filter values
 	public void compareFilterValuesDescending() {
-		Logger = report.createTest("test filter : Price (high to low) is working successfully");
+		ExtentTest Logger = extentReports.get().createTest("test filter : Price (high to low) is working successfully");
 		login();
 		Logger.pass("Login successfully");
 		// Capture prices before filter
@@ -136,7 +138,7 @@ public class HomePageTests extends BaseTest {
 	@Test(priority = 122)
 	// Main method to compare filter values
 	public void compareFilterNameAscending() {
-		Logger = report.createTest("test filter : Name (A to Z) is working successfully");
+		ExtentTest Logger = extentReports.get().createTest("test filter : Name (A to Z) is working successfully");
 		login();
 		Logger.pass("Login successfully");
 
@@ -168,7 +170,7 @@ public class HomePageTests extends BaseTest {
 	@Test(priority = 123)
 	// Main method to compare filter values
 	public void compareFilterNameDesending() {
-		Logger = report.createTest("test filter : Name (Z to A) is working successfully");
+		ExtentTest Logger = extentReports.get().createTest("test filter : Name (Z to A) is working successfully");
 		login();
 		Logger.pass("Login successfully");
 
@@ -202,7 +204,7 @@ public class HomePageTests extends BaseTest {
 	
 	@Test(priority = 105)
 	public void testfooterLinkCount() {
-		Logger = report.createTest("Test footer link count is 3");
+		ExtentTest Logger = extentReports.get().createTest("Test footer link count is 3");
 		login();
 		Logger.pass("login successfully");
 		int actual = homepage.footerLinkCount();
@@ -214,7 +216,7 @@ public class HomePageTests extends BaseTest {
 	
 	@Test(priority = 106)
 	public void testTwitter() {
-		Logger = report.createTest("Test Twitter link present in the footer");
+		ExtentTest Logger = extentReports.get().createTest("Test Twitter link present in the footer");
 		login();
 		Logger.pass("login successfully");
 		homepage.isTwitterDisplayed();
@@ -223,7 +225,7 @@ public class HomePageTests extends BaseTest {
 	
 	@Test(priority = 107)
 	public void testFacebook() {
-		Logger = report.createTest("Test Facebook link present in the footer");
+		ExtentTest Logger = extentReports.get().createTest("Test Facebook link present in the footer");
 		login();
 		Logger.pass("login successfully");
 		homepage.isFacebookDisplayed();
@@ -232,7 +234,7 @@ public class HomePageTests extends BaseTest {
 	
 	@Test(priority = 108)
 	public void testLinkedIn() {
-		Logger = report.createTest("Test LinkedIn link present in the footer");
+		ExtentTest Logger = extentReports.get().createTest("Test LinkedIn link present in the footer");
 		login();
 		Logger.pass("login successfully");
 		homepage.isLinkedInDisplayed();
@@ -241,7 +243,7 @@ public class HomePageTests extends BaseTest {
 	
 	@Test(priority = 109)
 	public void testPrivacyPolicyYearCorrect() {
-		Logger = report.createTest("Test PrivacyPolicy in the footer contains 2024");
+		ExtentTest Logger = extentReports.get().createTest("Test PrivacyPolicy in the footer contains 2024");
 		login();
 		Logger.pass("login successfully");
 		String yearText = homepage.PrivacyPolicyYearCorrect();
@@ -253,7 +255,7 @@ public class HomePageTests extends BaseTest {
 	
 	@Test(priority = 111)
 	public void testPriceValidationBackpack() {
-		Logger = report.createTest("test Price Validation for Backpack");
+		ExtentTest Logger = extentReports.get().createTest("test Price Validation for Backpack");
 		login();
 		Logger.pass("login successfully");
 		String priceText = homepage.PriceValidationBackpack();
@@ -272,7 +274,7 @@ public class HomePageTests extends BaseTest {
 	
 	@Test(priority = 112)
 	public void testPriceValidationOnesie() {
-		Logger = report.createTest("test Price Validation for Onesie");
+		ExtentTest Logger = extentReports.get().createTest("test Price Validation for Onesie");
 		login();
 		Logger.pass("login successfully");
 		String priceText = homepage.PriceValidationOnesie();
@@ -290,7 +292,7 @@ public class HomePageTests extends BaseTest {
 	
 	@Test(priority = 121)
 		public void testLogout() {
-			Logger = report.createTest("test Logout functionality");
+		ExtentTest Logger = extentReports.get().createTest("test Logout functionality");
 			login();
 			Logger.pass("login successfully");
 			homepage.clickburgerMenu();
@@ -303,7 +305,7 @@ public class HomePageTests extends BaseTest {
 		
 		@Test(priority = 122)
 		public void testABoutPage() throws InterruptedException {
-			Logger = report.createTest("Test for About Page starts");
+			ExtentTest Logger = extentReports.get().createTest("Test for About Page starts");
 			login();
 			Logger.pass("User logs in Successfully");
 			homepage.clickburgerMenu();
